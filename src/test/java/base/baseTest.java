@@ -1,10 +1,7 @@
 package base;
 import app.app;
 import helpers.Driver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 
 public class baseTest {
     protected app app;
@@ -17,7 +14,7 @@ public class baseTest {
 
     }
 
-    @BeforeMethod
+    @BeforeGroups("autorization")
     public void login(){
         app.LoginPage.open();
         app.LoginPage.login("katevoronina128@gmail.com", "8962615kate");

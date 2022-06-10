@@ -3,6 +3,7 @@ plugins {
     id 'io.qameta.allure' version '2.9.6'
 }
 
+
 group 'org.example'
 version '1.0-SNAPSHOT'
 
@@ -14,7 +15,7 @@ repositories {
 dependencies {
 
     implementation 'com.codeborne:selenide:6.3.5'
-    implementation 'org.testng:testng:7.1.0'
+    implementation 'org.testng:testng:7.0.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     testImplementation 'org.seleniumhq.selenium:selenium-java:4.1.2'
@@ -26,7 +27,14 @@ dependencies {
     testImplementation 'io.qameta.allure:allure-assertj:2.12.1'
     testImplementation 'io.qameta.allure:allure-rest-assured:2.12.1'
     testImplementation 'io.qameta.allure:allure-java-commons:2.12.1'
+    implementation 'io.qameta.allure:allure-selenide:2.12.1'
     testImplementation 'io.qameta.allure:allure-selenide:2.12.1'
+    testImplementation 'com.typesafe:config:1.4.0'
+    implementation 'com.typesafe:config:1.4.0'
+    implementation 'org.apache.commons:commons-lang3:3.9'
+    testImplementation 'org.apache.commons:commons-lang3:3.9'
+
+
 }
 
 test {

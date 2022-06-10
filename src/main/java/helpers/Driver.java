@@ -2,11 +2,14 @@ package helpers;
 
 import app.appConfig;
 import com.codeborne.selenide.*;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import io.qameta.allure.selenide.AllureSelenide;
+
 import java.util.List;
 
 public class Driver {
@@ -22,7 +25,7 @@ public class Driver {
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
         Configuration.holdBrowserOpen = false;
-        Configuration.screenshots = false;
+       SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         if(TestConfig.isHeadless()) {
             Configuration.headless = true;
@@ -72,7 +75,7 @@ public class Driver {
 
     public static void waitForUrlDoesNotContain(String urlChunk) {
         int maxTime = 20;
-        while(  currentDriver().getCurrentUrl().contains(urlChunk)  && maxTime > 0) {
+        while( currentDriver().getCurrentUrl().contains(urlChunk)  && maxTime > 0) {
             wait(1);
             maxTime--;
         }
