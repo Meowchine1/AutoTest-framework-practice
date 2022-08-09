@@ -1,4 +1,4 @@
-package schoolSgu;
+package functionalTests;
 import base.baseTest;
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
@@ -22,7 +22,7 @@ public class test extends baseTest {
         app.MainPage.chooseCourseCategory("Задачник");
         $(By.xpath(".//h1")).shouldBe(Condition.exist);
     }
-    @Test
+    @Test(groups = "autorization")
     public void search(){// norm
         app.editUserInformationPage.open();
         app.editUserInformationPage.setUserPhoto();

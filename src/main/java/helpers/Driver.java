@@ -6,8 +6,6 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import io.qameta.allure.selenide.AllureSelenide;
 
 import java.util.List;
@@ -15,13 +13,7 @@ import java.util.List;
 public class Driver {
 
     public static void initDriver() {
-
-        // Get settings from command line
-
         TestConfig.initConfig();
-
-        // Set settings for selenide browser
-
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
         Configuration.holdBrowserOpen = false;
@@ -68,19 +60,6 @@ public class Driver {
         }
     }
 
-    public static void waitForUrlContains(String urlChunk) {
-        WebDriverWait wait = new WebDriverWait(currentDriver(), 10);
-        wait.until(ExpectedConditions.urlContains(urlChunk));
-    }
-
-    public static void waitForUrlDoesNotContain(String urlChunk) {
-        int maxTime = 20;
-        while( currentDriver().getCurrentUrl().contains(urlChunk)  && maxTime > 0) {
-            wait(1);
-            maxTime--;
-        }
-    }
-
     public static void maximize() {
         currentDriver().manage().window().maximize();
     }
@@ -98,30 +77,6 @@ public class Driver {
     public static void close() {
         currentDriver().quit();
     }
-
-    public static void wait(int seconds)
-    {
-        try {
-            Thread.sleep(seconds * 1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-  /*  public static void takeScreenshot() {
-
-        File scrFile = ((TakesScreenshot) currentDriver()).getScreenshotAs(OutputType.FILE);
-
-        String path = System.getProperty("user.dir")
-                + File.separator + "test-output"
-                + File.separator + "screenshots"
-                + File.separator + " " + "screenshot_" +  (new SimpleDateFormat("HHmmssSSS").format(new Date())) + ".png";
-        try {
-            FileUtils.copyFile(scrFile, new File(path));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
 
     public static List<LogEntry> getBrowserLogs() {
         LogEntries log = currentDriver().manage().logs().get("browser");

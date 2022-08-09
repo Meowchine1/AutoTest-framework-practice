@@ -28,11 +28,11 @@ public class mainPage extends basePage {
         super();
     }
 
-    public mainPage search(String request){
+    public searchPage search(String request){
         getSearchbox().clear();
         getSearchbox().sendKeys(request);
         getSearchbtn().click();
-        return new mainPage(); // return search page
+        return new searchPage(); // return search page
     }
 
     public subCategoriesPage chooseCourseCategory(String categoryName){

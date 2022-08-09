@@ -1,13 +1,19 @@
 package app.pages.settingsPages;
 
 import app.pages.basePage;
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class editUserInformationPage extends basePage {
     private final SelenideElement lastname = $("#id_lastname");
-    private final SelenideElement photoLoad = $(".dndupload-arrow");
+    private final SelenideElement openPhotoLoadForm = $(By.xpath("//a[@title='Добавить...']"));
+    private final SelenideElement photoLoadForm = $("//form[@class='form']");
+    private final SelenideElement photoInput = $(By.xpath("//input[@type='file']"));
+    private final SelenideElement photoLoadBtn = $(By.xpath("//button[contains(text(),'Загрузить этот файл')]"));
+    private final SelenideElement saveChangesBtn = $(By.xpath("//input[@name='submitbutton']"));
     private final SelenideElement name = $("#firstname");
     private final SelenideElement email = $("#id_email");
     private final SelenideElement city = $("#id_city");
@@ -42,8 +48,13 @@ public class editUserInformationPage extends basePage {
     }
     public void setInformation(){}
     public void setUserPhoto(){
-        photoLoad.click();
-    }    //.gif .jpe .jpeg .jpg .png
+        openPhotoLoadForm.shouldBe(Condition.visible);
+        openPhotoLoadForm.click();
+        photoInput.sendKeys("C:/Users/katev/IdeaProjects/PetShop_GradleAllure2/src/test/java/data/test.gif");
+        photoLoadBtn.click();
+        saveChangesBtn.click();
+        //  switchTo().f
+    }   //.gif .jpe .jpeg .jpg .png
 
 
 

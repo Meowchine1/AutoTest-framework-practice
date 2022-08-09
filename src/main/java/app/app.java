@@ -9,7 +9,6 @@ import app.pages.settingsPages.languagePage;
 import app.pages.settingsPages.passwordPage;
 
 public class app {
-
     public final loginPage LoginPage;
     public final mainPage MainPage;
     public final marksPage MarksPage;
@@ -24,7 +23,6 @@ public class app {
     public final taskPage  TaskPage;
 
     public app() {
-
         LoginPage = pageBuilder.buildLoginPage();
         MainPage = pageBuilder.buildMainPage();
         MarksPage = pageBuilder.buildMarksPage();
@@ -37,6 +35,5 @@ public class app {
         PasswordPage = pageBuilder.buildPasswordPage();
         CoursePage = pageBuilder.buildCoursePage();
         TaskPage = pageBuilder.buildTaskPage();
-
     }
 }

@@ -20,7 +20,6 @@ public class loginPage extends basePage {
         return new mainPage();
     }
 
-
     public SelenideElement getLoginField() {
         return loginField;
     }
