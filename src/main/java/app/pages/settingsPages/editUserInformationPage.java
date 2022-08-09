@@ -50,7 +50,7 @@ public class editUserInformationPage extends basePage {
     public void setUserPhoto(){
         openPhotoLoadForm.shouldBe(Condition.visible);
         openPhotoLoadForm.click();
-        photoInput.sendKeys("C:/Users/katev/IdeaProjects/PetShop_GradleAllure2/src/test/java/data/test.gif");
+        photoInput.sendKeys(System.getProperty("user.dir") + "/test.gif");
         photoLoadBtn.click();
         saveChangesBtn.click();
         //  switchTo().f

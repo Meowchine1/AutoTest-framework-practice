@@ -28,6 +28,10 @@ public class test extends baseTest {
         app.editUserInformationPage.setUserPhoto();
 
     }
+    @Test
+public void ww(){
+    System.out.println(System.getProperty("user.dir"));
+}
 
     public static void main(String[] args) {
         System.out.println("Россия");
