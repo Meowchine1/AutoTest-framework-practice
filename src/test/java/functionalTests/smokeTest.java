@@ -10,17 +10,18 @@ import org.testng.annotations.Test;
 import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.util.Random;
-
+import base.staticDataProvider;
 import static com.codeborne.selenide.Selenide.*;
 
 public class smokeTest extends baseTest {
 
+    private static final String authorization = "authorization";
     public final SelenideElement ERROR_SING_IN_MESSAGE = $(By.xpath(".//div[@role='alert']"));
 
     @DataProvider(name = "validSearch", parallel = true)
     public static Object[][] searchRequest() {
-        return new Object[][] {{"курс"}, {"информация"}, {"2012"}, {"у"},
-                {"икт"}};
+        return new Object[][] {{"РєСѓСЂСЃ"}, {"РёРЅС„РѕСЂРјР°С†РёСЏ"}, {"2012"}, {"Сѓ"},
+                {"РёРєС‚"}};
     }
 
     @DataProvider(name = "invalidSearch", parallel = true)
@@ -35,13 +36,7 @@ public class smokeTest extends baseTest {
         };
     }
 
-//    @DataProvider(name = "search", parallel = true)
-//    public static Object[][] searchRequest() {
-//        return new Object[][] {{""}, {"#"}, {"34"}, {"%"}, {"course"},
-//                {"икт"}};
-//    }
 
-    //data.ConfigProvider
     @Test
     public void positiveSignIn(){
         app.LoginPage.open();
@@ -75,29 +70,29 @@ public class smokeTest extends baseTest {
                 .shouldBe(Condition.visible);
     }
 
-    @Test(groups = "autorization")
+    @Test(groups = authorization)
     public void openCourse(){
         app.MainPage
-                .chooseCourseCategory("Задачник")
+                .chooseCourseCategory("Р—Р°РґР°С‡РЅРёРє")
      //  System.out.println($(By.xpath(".//a[@class='aalink']")).getAttribute("href"));
-               .chooseCourse("Задачник по программированию");
+               .chooseCourse("Р—Р°РґР°С‡РЅРёРє РїРѕ РїСЂРѕРіСЂР°РјРјРёСЂРѕРІР°РЅРёСЋ");
         //$(By.xpath(".//h1")).shouldBe(Condition.exist);
 
     }
 
-   @Test(groups = "autorization", dataProvider = "validSearch" )
-    public void validSearch(String request){  //параметризованный тест
+   @Test(groups = authorization, dataProvider = "validSearch", dataProviderClass = staticDataProvider.class)
+    public void validSearch(String request){  //РїР°СЂР°РјРµС‚СЂРёР·РѕРІР°РЅРЅС‹Р№ С‚РµСЃС‚
         app.SearchPage.open();
         Assert.assertTrue(app.SearchPage.validSearch(request));
     }
 
-    @Test(groups = "autorization", dataProvider = "invalidSearch")
-    public void invalidSearch( String request){  //параметризованный тест
+    @Test(groups = authorization, dataProvider = "invalidSearch",  dataProviderClass = staticDataProvider.class)
+    public void invalidSearch( String request){  //РїР°СЂР°РјРµС‚СЂРёР·РѕРІР°РЅРЅС‹Р№ С‚РµСЃС‚
         app.SearchPage.open();
         Assert.assertTrue(app.SearchPage.invalidSearch(request));
     }
 
-    @Test(groups = "autorization",  dataProvider = "longRequest")
+    @Test(groups = authorization,  dataProvider = "longRequest",  dataProviderClass = staticDataProvider.class)
     public void bigSizeStringformat(int length){
         byte[] array = new byte[length]; // length is bounded by 7
         new Random().nextBytes(array);
@@ -107,7 +102,7 @@ public class smokeTest extends baseTest {
 
     }
 
-    @Test (groups = "autorization")
+    @Test (groups = authorization ,  dataProvider = "correctPhoto",  dataProviderClass = staticDataProvider.class)
     public void loadFile(){
         SelenideElement input = $(By.xpath(".//input[@id='filesourcekey-6289f2e207b6d']"));
         //.//input[@name='files_filemanager']
@@ -121,7 +116,7 @@ public class smokeTest extends baseTest {
         executeJavaScript(script, element);
     }
 
-    @Test(groups = "autorization")
+    @Test(groups = authorization)
     public void attachFile() throws InterruptedException {
         app.CoursePage.open();
         SelenideElement input = $(By.xpath(".//input[@name='files_filemanager']"));
@@ -129,11 +124,11 @@ public class smokeTest extends baseTest {
         executeJavaScript("arguments[0].setAttribute('type', 'inline')",input );
         String file = "src/test/java/files/test.gif";
         input.uploadFile(new File(file));
-        $(By.xpath(".//input[@value='Сохранить'] ")).click();
+        $(By.xpath(".//input[@value='РЎРѕС…СЂР°РЅРёС‚СЊ'] ")).click();
 
     }
 
-    @Test(groups = "autorization")
+    @Test(groups = authorization)
     public void exitFromcourse() throws InterruptedException {
         app.TaskPage.open();
         $(By.xpath(".//a[@id='action-menu-toggle-2']")).click();
@@ -142,17 +137,17 @@ public class smokeTest extends baseTest {
 
     }
 
-    @Test(groups = "autorization")
+    @Test(groups = authorization)
     public void enrollAndExitFromcourse() throws InterruptedException {
        app.CoursePage.open();
        app.CoursePage.enroll();
        app.CoursePage.exit();
     }
 
-    @Test(groups = "autorization")
+    @Test(groups = authorization)
     public void enrollCourseAndGetTask() throws InterruptedException {
         app.CoursePage.open();
-        app.CoursePage.chooseTask("Практикум. Первая задача\nКонтестер")
+        app.CoursePage.chooseTask("РџСЂР°РєС‚РёРєСѓРј. РџРµСЂРІР°СЏ Р·Р°РґР°С‡Р°\nРљРѕРЅС‚РµСЃС‚РµСЂ")
                 .sendAnswer()
                 .setLang("Python 3")
                 .sendCode(" g")

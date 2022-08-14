@@ -1,47 +1,40 @@
 package functionalTests;
 import base.baseTest;
+import base.staticDataProvider;
 import com.codeborne.selenide.Condition;
 import org.openqa.selenium.By;
 import org.testng.annotations.BeforeGroups;
+import org.testng.annotations.DataProvider;
 import utils.UrlValidator;
 import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
-
 import static com.codeborne.selenide.Selenide.$;
 
 public class test extends baseTest {
 
+    private static final String authorization = "authorization";
     @Test
     public void choseCategory(){
         System.out.print("Задачник");
     }
 
-    @Test(groups = "autorization")
+    @Test(groups = authorization)
     public void course(){
         app.MainPage.chooseCourseCategory("Задачник");
         $(By.xpath(".//h1")).shouldBe(Condition.exist);
     }
-    @Test(groups = "autorization")
-    public void search(){// norm
+
+    @Test ( groups = authorization, dataProvider = "correctPhoto",  dataProviderClass = staticDataProvider.class)
+    public void load(String filename){// norm
         app.editUserInformationPage.open();
-        app.editUserInformationPage.setUserPhoto();
+        app.editUserInformationPage.setCorrectUserPhoto(filename);
 
     }
+
     @Test
-public void ww(){
-    System.out.println(System.getProperty("user.dir"));
-}
-
-    public static void main(String[] args) {
-        System.out.println("Россия");
+    public void course2(){
+        app.MainPage.chooseCourseCategory("Задачник");
+        $(By.xpath(".//h1")).shouldBe(Condition.exist);
     }
-    @Test
-    public void validLink() throws MalformedURLException, URISyntaxException {
-
-        UrlValidator urlValidator = new UrlValidator();
-        urlValidator.sanitize("https://studme.org/121249/informatika/osobennosti_polzovatelskogo_interfeysa");
-    }
-
-
 }

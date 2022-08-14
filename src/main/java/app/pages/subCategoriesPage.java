@@ -19,7 +19,7 @@ public class subCategoriesPage {
         boolean isFind = false;
         while(nextBtn.exists()){
             int i = 0;
-            for(SelenideElement element : courses) {  // меняется ли локатор коллекции после
+            for(SelenideElement element : courses) {  // РјРµРЅСЏРµС‚СЃСЏ Р»Рё Р»РѕРєР°С‚РѕСЂ РєРѕР»Р»РµРєС†РёРё РїРѕСЃР»Рµ
                 if (element.getText().equals(courseName)) {
                     courses.get(i).click();
                     isFind = true;

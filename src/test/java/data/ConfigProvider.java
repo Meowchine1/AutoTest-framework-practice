@@ -12,7 +12,6 @@ public interface ConfigProvider {
     public  String REAL_USER_PASSWORD = config.getString("usersParams.realUser.password");
     public String EMPTY_PASSWORD = config.getString("password.empty");
     public String EMPTY_LOGIN = config.getString("email.empty");
-
     public String symbol_grid =  config.getString("search.symbol_grid");
     public  String symbol_dollar =  config.getString("search.symbol_dollar");
     public String symbol_dog =  config.getString("search.symbol_dog");

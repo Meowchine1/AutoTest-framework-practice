@@ -14,7 +14,7 @@ public class baseTest {
 
     }
 
-    @BeforeGroups("autorization")
+    @BeforeMethod (groups = "authorization")
     public void login(){
         app.LoginPage.open();
         app.LoginPage.login("katevoronina128@gmail.com", "8962615kate");

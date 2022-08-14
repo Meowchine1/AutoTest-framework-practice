@@ -5,6 +5,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class editUserInformationPage extends basePage {
@@ -47,14 +49,14 @@ public class editUserInformationPage extends basePage {
         city.sendKeys(text);
     }
     public void setInformation(){}
-    public void setUserPhoto(){
-        openPhotoLoadForm.shouldBe(Condition.visible);
-        openPhotoLoadForm.click();
-        photoInput.sendKeys(System.getProperty("user.dir") + "/test.gif");
+
+    public void setCorrectUserPhoto(String path){
+        File file = new File(path);
+        openPhotoLoadForm.shouldBe(Condition.visible).click();
+        photoInput.sendKeys(file.getAbsolutePath());
         photoLoadBtn.click();
         saveChangesBtn.click();
-        //  switchTo().f
-    }   //.gif .jpe .jpeg .jpg .png
+    }
 
 
 

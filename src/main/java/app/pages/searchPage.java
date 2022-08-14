@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class searchPage extends basePage {
-    public final String exseptionMessage = "не найдено";
+    public final String exseptionMessage = "РЅРµ РЅР°Р№РґРµРЅРѕ";
     public final int maxLength = 20;
     public final SelenideElement exseptionMessageLocator = $(By.xpath(".//h2"));
     public final ElementsCollection searcresults = $$(By.xpath(".//a[@class='aalink']"));
@@ -19,21 +19,21 @@ public class searchPage extends basePage {
     public final SelenideElement searcresultsContentNoResults = $(By.xpath(".//div[@id='page-content'] "));
     public final SelenideElement searchInput = $("#coursesearchbox");
 
-    public final SelenideElement showall = $(By.xpath("//*[contains(text(),'Показать все')]"));
+    public final SelenideElement showall = $(By.xpath("//*[contains(text(),'РџРѕРєР°Р·Р°С‚СЊ РІСЃРµ')]"));
     public final SelenideElement searchBtn = $(By.xpath(".//button[@type='submit']"));
 
     public searchPage(String pageUrl) {
         super(pageUrl);
     }
     public searchPage(){}
-//Курсов со словами «$» не найдено
+//РљСѓСЂСЃРѕРІ СЃРѕ СЃР»РѕРІР°РјРё В«$В» РЅРµ РЅР°Р№РґРµРЅРѕ
     public boolean validSearch(String request) {
         searchInput.sendKeys(request);
         searchBtn.click();
         showall.click();
         int i = 0;
-        //не найдено
-        if(searcresultsContentNoResults.getText().contains("найдено")){
+        //РЅРµ РЅР°Р№РґРµРЅРѕ
+        if(searcresultsContentNoResults.getText().contains("РЅР°Р№РґРµРЅРѕ")){
             return true;
         }
             for(SelenideElement element : searcresults)
