@@ -1,5 +1,6 @@
 package app.pages;
 
+import app.pages.common.BasePage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -8,7 +9,7 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class taskPage extends basePage {
+public class TaskPage extends BasePage {
     public boolean locked = false;
     public String task = "";
     public SelenideElement taskName = $("#problemselect");
@@ -22,44 +23,45 @@ public class taskPage extends basePage {
     public final SelenideElement myAnswers = $(By.xpath("//nobr[3]/a"));
     public final ElementsCollection langCategory = $$(By.xpath(".//select[@name = 'lang']/child::option"));
 
-    public taskPage(String pageUrl) {
+    public TaskPage(String pageUrl) {
         super(pageUrl);
     }
 
-    public taskPage() {
+    public TaskPage() {
     }
 
-    public taskPage sendAnswer(){
+    public TaskPage sendAnswer() {
         sendTask.click();
-        return new taskPage();
+        return new TaskPage();
     }
 
-    public taskPage setLang(String catName){
+    public TaskPage setLang(String catName) {
         chooseLang.click();
-        for(SelenideElement element : langCategory){
-            if (element.getText().equals(catName)){
+        for (SelenideElement element : langCategory) {
+            if (element.getText().equals(catName)) {
                 element.click();
                 break;
             }
         }
-        return new taskPage();
+        return new TaskPage();
     }
-    public taskPage sendCode(String code){
+
+    public TaskPage sendCode(String code) {
         codeArea.sendKeys(code);
         task = taskName.getText();
         sendTask.click();
-        if(code.trim().length() == 0){
+        if (code.trim().length() == 0) {
             errormess.shouldBe(Condition.visible);
         }
-        return new taskPage();
+        return new TaskPage();
     }
 
-    public taskPage checkMyAnswers(){
+    public TaskPage checkMyAnswers() {
         myAnswers.click();
-        return new taskPage();
+        return new TaskPage();
     }
 
-    public boolean isEquals(){
+    public boolean isEquals() {
         return task.equals(lastTask.getText());
     }
 }

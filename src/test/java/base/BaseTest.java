@@ -1,21 +1,22 @@
 package base;
-import app.app;
+
+import app.App;
 import helpers.Driver;
 import org.testng.annotations.*;
 
-public class baseTest {
-    protected app app;
+public class BaseTest {
+    private App app;
 
     @BeforeClass
     public void setUp() {
 
         Driver.initDriver();
-        app = new app();
+        app = new App();
 
     }
 
-    @BeforeMethod (groups = "authorization")
-    public void login(){
+    @BeforeMethod(groups = "authorization")
+    public void login() {
         app.LoginPage.open();
         app.LoginPage.login("katevoronina128@gmail.com", "8962615kate");
     }

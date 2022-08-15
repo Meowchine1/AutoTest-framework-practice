@@ -1,7 +1,6 @@
 package app.pages;
-import app.pages.contextMenuPages.messagePage;
-import app.pages.settingsPages.editUserInformationPage;
-import app.pages.contextMenuPages.userPage;
+import app.pages.common.BasePage;
+import app.pages.settings.EditUserInfPage;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
@@ -11,7 +10,7 @@ import java.util.Objects;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class mainPage extends basePage {
+public class MainPage extends BasePage {
     public final SelenideElement searchbox = $("#shortsearchbox");
     public final SelenideElement searchbtn = $(By.xpath("//button[@type ='submit']"));
     public final SelenideElement userMenu = $(By.xpath(".//div[@class = 'dropdown']/child::a"));
@@ -21,21 +20,21 @@ public class mainPage extends basePage {
     public final ElementsCollection courseCategories = $$(By.xpath(".//div[@class = 'category loaded']//a"));
     public final ElementsCollection navigateCategories = $$(By.xpath(".//nav[@class = 'list-group']/descendant::a"));
 
-    public mainPage(String pageUrl) {
+    public MainPage(String pageUrl) {
         super(pageUrl);
     }
-    public mainPage() {
+    public MainPage() {
         super();
     }
 
-    public searchPage search(String request){
+    public SearchPage search(String request){
         getSearchbox().clear();
         getSearchbox().sendKeys(request);
         getSearchbtn().click();
-        return new searchPage(); // return search page
+        return new SearchPage(); // return search page
     }
 
-    public subCategoriesPage chooseCourseCategory(String categoryName){
+    public static SubCategoriesPage chooseCourseCategory(String categoryName){
         int i = 0;
        for(SelenideElement element : getCourseCategories()){
            if (element.getText().equals(categoryName)){
@@ -43,10 +42,10 @@ public class mainPage extends basePage {
            }
             i++;
        }
-       return new subCategoriesPage();
+       return new SubCategoriesPage();
     }
 
-    public calendarPage moveToCalendarPage(){
+    public CalendarPage moveToCalendarPage(){
         //   calendar  myhome  home
         String categoryName = "calendar";
         getNavigateMenu().click();
@@ -57,10 +56,10 @@ public class mainPage extends basePage {
                 break;
             }
         }
-        return new calendarPage();
+        return new CalendarPage();
     }
 
-    public userPage moveToUserPage( ){
+    public UserPage moveToUserPage( ){
         String category = "О пользователе";
         getUserMenu().click();
         for(int i = 0; i< getUserMenuNameCategories().size(); i++){
@@ -69,10 +68,10 @@ public class mainPage extends basePage {
                 break;
             }
         }
-        return new userPage();
+        return new UserPage();
     }
 
-    public messagePage moveToMessagePage( ){
+    public MessagePage moveToMessagePage( ){
         String category = "Сообщения";
         getUserMenu().click();
         for(int i = 0; i< getUserMenuNameCategories().size(); i++){
@@ -81,10 +80,10 @@ public class mainPage extends basePage {
                 break;
             }
         }
-        return new messagePage();
+        return new MessagePage();
     }
 
-    public editUserInformationPage moveToSettingsPage( ){
+    public EditUserInfPage moveToSettingsPage( ){
         String category = "Настройки";
         getUserMenu().click();
         for(int i = 0; i< getUserMenuNameCategories().size(); i++){
@@ -93,7 +92,7 @@ public class mainPage extends basePage {
                 break;
             }
         }
-        return new editUserInformationPage();
+        return new EditUserInfPage();
     }
 
   /*  public mainPage chooseMyCourses(){

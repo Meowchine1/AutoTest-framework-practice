@@ -1,6 +1,6 @@
 package helpers;
 
-import app.appConfig;
+import app.AppConfig;
 import com.codeborne.selenide.*;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import org.openqa.selenium.*;
@@ -69,7 +69,7 @@ public class Driver {
     }
 
     public static void clearCookies() {
-        open(appConfig.baseUrl);
+        open(AppConfig.baseUrl);
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
     }

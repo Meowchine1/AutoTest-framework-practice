@@ -1,6 +1,6 @@
-package app.pages.settingsPages;
+package app.pages.settings;
 
-import app.pages.basePage;
+import app.pages.common.BasePage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
@@ -9,7 +9,7 @@ import java.io.File;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class editUserInformationPage extends basePage {
+public class EditUserInfPage extends BasePage {
     private final SelenideElement lastname = $("#id_lastname");
     private final SelenideElement openPhotoLoadForm = $(By.xpath("//a[@title='Добавить...']"));
     private final SelenideElement photoLoadForm = $("//form[@class='form']");
@@ -20,46 +20,51 @@ public class editUserInformationPage extends basePage {
     private final SelenideElement email = $("#id_email");
     private final SelenideElement city = $("#id_city");
 
-    public editUserInformationPage(String pageUrl) {
+    public EditUserInfPage(String pageUrl) {
         super(pageUrl);
     }
 
-    public editUserInformationPage() {}
+    public EditUserInfPage() {
+    }
 
-    public void setName(String text){
+    public void setName(String text) {
 
         name.sendKeys(text);
     }
-    public void setSurname(String text){
+
+    public void setSurname(String text) {
 
         lastname.sendKeys(text);
     }
-    public void setEmail(String text){
+
+    public void setEmail(String text) {
 
         email.sendKeys(text);
     }
-    public void setEmailSettings(){
+
+    public void setEmailSettings() {
 
     }
-    public void chooseCountry(String text){
+
+    public void chooseCountry(String text) {
 
     }
-    public void setCity(String text){
+
+    public void setCity(String text) {
 
         city.sendKeys(text);
     }
-    public void setInformation(){}
 
-    public void setCorrectUserPhoto(String path){
+    public void setInformation() {
+    }
+
+    public static void setCorrectUserPhoto(String path) {
         File file = new File(path);
         openPhotoLoadForm.shouldBe(Condition.visible).click();
         photoInput.sendKeys(file.getAbsolutePath());
         photoLoadBtn.click();
         saveChangesBtn.click();
     }
-
-
-
 
 
 }

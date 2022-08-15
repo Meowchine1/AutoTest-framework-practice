@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class staticDataProvider {
+public class CustomDataProvider {
 
     @DataProvider(name = "validSearch", parallel = true)
     public static Object[][] searchRequest() {
@@ -39,7 +39,9 @@ public class staticDataProvider {
             i++;
         }
         return result;
-    };
+    }
+
+    ;
 }
 
 

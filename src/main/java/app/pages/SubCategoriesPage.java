@@ -8,18 +8,19 @@ import org.openqa.selenium.By;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class subCategoriesPage {
+public class SubCategoriesPage {
     public final ElementsCollection courses = $$(By.xpath(".//a[@class='aalink']"));
     public final SelenideElement nextBtn = $(By.xpath(".//a[@aria-label='Next']"));
     public final SelenideElement submitBtn = $(By.xpath(".//input[@type ='submit']"));
 
-    public subCategoriesPage() {}
+    public SubCategoriesPage() {
+    }
 
-    public void chooseCourse(String courseName){
+    public void chooseCourse(String courseName) {
         boolean isFind = false;
-        while(nextBtn.exists()){
+        while (nextBtn.exists()) {
             int i = 0;
-            for(SelenideElement element : courses) {  // меняется ли локатор коллекции после
+            for (SelenideElement element : courses) {  // меняется ли локатор коллекции после
                 if (element.getText().equals(courseName)) {
                     courses.get(i).click();
                     isFind = true;
@@ -29,11 +30,10 @@ public class subCategoriesPage {
             }
             nextBtn.click();
         }
-        if (!isFind)
-        {
+        if (!isFind) {
             int i = 0;
-            for(SelenideElement element : courses){
-                if(element.getText().equals(courseName)){
+            for (SelenideElement element : courses) {
+                if (element.getText().equals(courseName)) {
                     courses.get(i).click();
                 }
                 i++;
@@ -41,14 +41,10 @@ public class subCategoriesPage {
         }
     }
 
-    public taskPage submitCourse (){
+    public TaskPage submitCourse() {
         submitBtn.shouldBe(Condition.visible).click();
-        return new taskPage();
+        return new TaskPage();
     }
-
-
-
-
 
 
 }

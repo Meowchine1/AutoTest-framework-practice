@@ -1,23 +1,25 @@
 package app.pages;
+
+import app.pages.common.BasePage;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class loginPage extends basePage {
+public class LoginPage extends BasePage {
 
     private SelenideElement loginField = $("#username");
     private SelenideElement passwordField = $("#password");
     private SelenideElement signInButton = $("#loginbtn");
 
-    public loginPage(String pageUrl) {
+    public LoginPage(String pageUrl) {
         super(pageUrl);
     }
 
-    public mainPage login(String email, String password) {
+    public static MainPage login(String email, String password) {
         getLoginField().setValue(email);
         getPasswordField().setValue(password);
         getSignInButton().click();
-        return new mainPage();
+        return new MainPage();
     }
 
     public SelenideElement getLoginField() {
