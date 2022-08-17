@@ -28,17 +28,17 @@ public class MainPage extends BasePage {
     }
 
     public SearchPage search(String request){
-        getSearchbox().clear();
-        getSearchbox().sendKeys(request);
-        getSearchbtn().click();
+        searchbox.clear();
+        searchbox.sendKeys(request);
+        searchbtn.click();
         return new SearchPage(); // return search page
     }
 
-    public static SubCategoriesPage chooseCourseCategory(String categoryName){
+    public SubCategoriesPage chooseCourseCategory(String categoryName){
         int i = 0;
-       for(SelenideElement element : getCourseCategories()){
+       for(SelenideElement element : courseCategories){
            if (element.getText().equals(categoryName)){
-               getCourseCategories().get(i).click();
+               courseCategories.get(i).click();
            }
             i++;
        }
@@ -48,8 +48,8 @@ public class MainPage extends BasePage {
     public CalendarPage moveToCalendarPage(){
         //   calendar  myhome  home
         String categoryName = "calendar";
-        getNavigateMenu().click();
-        for(SelenideElement element : getNavigateCategories()){
+        navigateMenu.click();
+        for(SelenideElement element : navigateCategories){
             if(Objects.equals(element.getAttribute("data-key"), categoryName))
             {
                 element.click();
@@ -61,10 +61,10 @@ public class MainPage extends BasePage {
 
     public UserPage moveToUserPage( ){
         String category = "О пользователе";
-        getUserMenu().click();
-        for(int i = 0; i< getUserMenuNameCategories().size(); i++){
-            if(getUserMenuNameCategories().get(i).getText().equals(category)){
-                getUserMenuHrefsCategories().get(i).click();
+        userMenu.click();
+        for(int i = 0; i< userMenuNameCategories.size(); i++){
+            if(userMenuNameCategories.get(i).getText().equals(category)){
+                userMenuHrefsCategories.get(i).click();
                 break;
             }
         }
@@ -73,10 +73,10 @@ public class MainPage extends BasePage {
 
     public MessagePage moveToMessagePage( ){
         String category = "Сообщения";
-        getUserMenu().click();
-        for(int i = 0; i< getUserMenuNameCategories().size(); i++){
-            if(getUserMenuNameCategories().get(i).getText().equals(category)){
-                getUserMenuHrefsCategories().get(i).click();
+        userMenu.click();
+        for(int i = 0; i< userMenuNameCategories.size(); i++){
+            if(userMenuNameCategories.get(i).getText().equals(category)){
+                userMenuHrefsCategories.get(i).click();
                 break;
             }
         }
@@ -85,56 +85,14 @@ public class MainPage extends BasePage {
 
     public EditUserInfPage moveToSettingsPage( ){
         String category = "Настройки";
-        getUserMenu().click();
-        for(int i = 0; i< getUserMenuNameCategories().size(); i++){
-            if(getUserMenuNameCategories().get(i).getText().equals(category)){
-                getUserMenuHrefsCategories().get(i).click();
+        userMenu.click();
+        for(int i = 0; i< userMenuNameCategories.size(); i++){
+            if(userMenuNameCategories.get(i).getText().equals(category)){
+                userMenuHrefsCategories.get(i).click();
                 break;
             }
         }
         return new EditUserInfPage();
     }
 
-  /*  public mainPage chooseMyCourses(){
-
-        return new mainPage();
-    }
-
-    public mainPage chooseContestCourse(){
-
-        return new mainPage();
-    }*/
-
-    public SelenideElement getSearchbox() {
-        return searchbox;
-    }
-
-    public SelenideElement getSearchbtn() {
-        return searchbtn;
-    }
-
-    public SelenideElement getUserMenu() {
-        return userMenu;
-    }
-
-    public ElementsCollection getUserMenuNameCategories() {
-        return userMenuNameCategories;
-    }
-
-    public ElementsCollection getUserMenuHrefsCategories() {
-        return userMenuHrefsCategories;
-    }
-
-    public SelenideElement getNavigateMenu() {
-        return navigateMenu;
-    }
-
-    public ElementsCollection getCourseCategories() {
-        return courseCategories;
-    }
-
-    public ElementsCollection getNavigateCategories() {
-        return navigateCategories;
-    }
-    //  public void chooseCategory(){}
 }

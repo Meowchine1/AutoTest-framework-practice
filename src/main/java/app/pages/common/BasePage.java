@@ -15,7 +15,7 @@ public abstract class BasePage {
     public BasePage() {
     }
 
-    public static void open() {
+    public  void open() {
         String url = Trim.rtrim(AppConfig.baseUrl, "/") + "/" + Trim.ltrim(pageUrl, "/");
         Selenide.open(url);
     }

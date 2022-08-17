@@ -8,11 +8,11 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class PasswordPage extends BasePage {
 
-    public SelenideElement oldPassword = $(By.xpath(".//input[@name='password']"));
-    public SelenideElement newPassword = $(By.xpath(".//input[@name='newpassword1']"));
-    public SelenideElement repeatPassword = $(By.xpath(".//input[@name='newpassword2']"));
-    public SelenideElement saveBtn = $(By.xpath(".//input[@name='submitbutton']"));
-    public SelenideElement cancelBtn = $(By.xpath(".//input[@name='cancel']"));
+    private static final SelenideElement oldPassword = $(By.xpath(".//input[@name='password']"));
+    private static final SelenideElement newPassword = $(By.xpath(".//input[@name='newpassword1']"));
+    private static final SelenideElement repeatPassword = $(By.xpath(".//input[@name='newpassword2']"));
+    private static final SelenideElement saveBtn = $(By.xpath(".//input[@name='submitbutton']"));
+    private static final SelenideElement cancelBtn = $(By.xpath(".//input[@name='cancel']"));
 
     public PasswordPage(String pageUrl) {
         super(pageUrl);

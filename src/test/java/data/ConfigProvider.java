@@ -8,7 +8,7 @@ public interface ConfigProvider {
     static Config readConfig () {
         return ConfigFactory.load("application.conf");
     }
-    public   String REAL_USER_LOGIN = config.getString("usersParams.realUser.login");
+    public static final String REAL_USER_LOGIN = config.getString("usersParams.validUser.login");
     public  String REAL_USER_PASSWORD = config.getString("usersParams.realUser.password");
     public String EMPTY_PASSWORD = config.getString("password.empty");
     public String EMPTY_LOGIN = config.getString("email.empty");

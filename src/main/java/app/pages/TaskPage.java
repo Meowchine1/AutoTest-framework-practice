@@ -10,18 +10,18 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class TaskPage extends BasePage {
-    public boolean locked = false;
-    public String task = "";
-    public SelenideElement taskName = $("#problemselect");
-    public ElementsCollection taskDescriptions = $$(By.xpath(".//td[@align = 'center' and @valign = 'middle']/child::a"));
-    public ElementsCollection sendTaskButtons = $$(By.xpath(".//input[@type='submit']"));
-    public final SelenideElement sendTask = $(By.xpath("//input[@type = 'submit']"));
-    public final SelenideElement lastTask = $(By.xpath(".//tr[@class = 'lastrow']/descendant::a"));
-    public final SelenideElement chooseLang = $(By.xpath(".//select[@name = 'lang']"));
-    public final SelenideElement errormess = $(By.xpath(".//*[@class = 'errormessage']"));
-    public final SelenideElement codeArea = $(By.xpath(".//textarea[@name='code']"));
-    public final SelenideElement myAnswers = $(By.xpath("//nobr[3]/a"));
-    public final ElementsCollection langCategory = $$(By.xpath(".//select[@name = 'lang']/child::option"));
+    private boolean locked = false;
+    private String task = "";
+    private  final SelenideElement taskName = $("#problemselect");
+    private static final ElementsCollection taskDescriptions = $$(By.xpath(".//td[@align = 'center' and @valign = 'middle']/child::a"));
+    private static final ElementsCollection sendTaskButtons = $$(By.xpath(".//input[@type='submit']"));
+    private static final SelenideElement sendTask = $(By.xpath("//input[@type = 'submit']"));
+    private static final SelenideElement lastTask = $(By.xpath(".//tr[@class = 'lastrow']/descendant::a"));
+    private static final SelenideElement chooseLang = $(By.xpath(".//select[@name = 'lang']"));
+    private static final SelenideElement errormess = $(By.xpath(".//*[@class = 'errormessage']"));
+    private static final SelenideElement codeArea = $(By.xpath(".//textarea[@name='code']"));
+    private static final SelenideElement myAnswers = $(By.xpath("//nobr[3]/a"));
+    private static final ElementsCollection langCategory = $$(By.xpath(".//select[@name = 'lang']/child::option"));
 
     public TaskPage(String pageUrl) {
         super(pageUrl);

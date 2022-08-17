@@ -9,16 +9,16 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class SearchPage extends BasePage {
-    public static final String exseptionMessage = "не найдено";
-    public static final int maxLength = 20;
-    public static final SelenideElement exseptionMessageLocator = $(By.xpath(".//h2"));
-    public static final ElementsCollection searcresults = $$(By.xpath(".//a[@class='aalink']"));
-    public static final ElementsCollection searcresultsContent = $$(By.xpath(".//div[@data-type='1']" +
-            " /descendant::div[@class='content']"));
-    public static final SelenideElement searcresultsContentNoResults = $(By.xpath(".//div[@id='page-content'] "));
-    public static final SelenideElement searchInput = $("#coursesearchbox");
-    public static final SelenideElement showall = $(By.xpath("//*[contains(text(),'Показать все')]"));
-    public static final SelenideElement searchBtn = $(By.xpath(".//button[@type='submit']"));
+    private static final String exseptionMessage = "не найдено";
+    private static final int maxLength = 20;
+    private static final SelenideElement exseptionMessageLocator = $(By.xpath(".//h2"));
+    private static final ElementsCollection searcresults = $$(By.xpath(".//a[@class='aalink']"));
+    private static final ElementsCollection searcresultsContent =
+            $$(By.xpath(".//div[@data-type='1']/descendant::div[@class='content']"));
+    private static final SelenideElement searcresultsContentNoResults = $(By.xpath(".//div[@id='page-content'] "));
+    private static final SelenideElement searchInput = $("#coursesearchbox");
+    private static final SelenideElement showall = $(By.xpath("//*[contains(text(),'Показать все')]"));
+    private static final SelenideElement searchBtn = $(By.xpath(".//button[@type='submit']"));
 
     public SearchPage(String pageUrl) {
         super(pageUrl);
@@ -28,7 +28,7 @@ public class SearchPage extends BasePage {
     }
 
     //Курсов со словами «$» не найдено
-    public static boolean validSearch(String request) {
+    public boolean validSearch(String request) {
         searchInput.sendKeys(request);
         searchBtn.click();
         showall.click();
@@ -48,7 +48,7 @@ public class SearchPage extends BasePage {
         return true;
     }
 
-    public static boolean invalidSearch(String request) {
+    public boolean invalidSearch(String request) {
         searchInput.sendKeys(request);
         searchBtn.click();
         return (exseptionMessageLocator
@@ -57,7 +57,7 @@ public class SearchPage extends BasePage {
                 .contains(exseptionMessage));
     }
 
-    public static boolean writeBigSizeString(String request) {
+    public boolean writeBigSizeString(String request) {
         searchInput.sendKeys(request);
         System.out.print(searchInput.getText());
         if (request.length() > 20) {

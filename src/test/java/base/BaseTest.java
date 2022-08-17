@@ -5,7 +5,7 @@ import helpers.Driver;
 import org.testng.annotations.*;
 
 public class BaseTest {
-    private App app;
+    protected App app;
 
     @BeforeClass
     public void setUp() {
@@ -17,8 +17,8 @@ public class BaseTest {
 
     @BeforeMethod(groups = "authorization")
     public void login() {
-        app.LoginPage.open();
-        app.LoginPage.login("katevoronina128@gmail.com", "8962615kate");
+        app.loginPage.open();
+        app.loginPage.login("katevoronina128@gmail.com", "8962615kate");
     }
 
     @AfterMethod

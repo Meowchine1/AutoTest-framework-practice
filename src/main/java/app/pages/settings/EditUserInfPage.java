@@ -10,15 +10,15 @@ import java.io.File;
 import static com.codeborne.selenide.Selenide.$;
 
 public class EditUserInfPage extends BasePage {
-    private final SelenideElement lastname = $("#id_lastname");
-    private final SelenideElement openPhotoLoadForm = $(By.xpath("//a[@title='Добавить...']"));
-    private final SelenideElement photoLoadForm = $("//form[@class='form']");
-    private final SelenideElement photoInput = $(By.xpath("//input[@type='file']"));
-    private final SelenideElement photoLoadBtn = $(By.xpath("//button[contains(text(),'Загрузить этот файл')]"));
-    private final SelenideElement saveChangesBtn = $(By.xpath("//input[@name='submitbutton']"));
-    private final SelenideElement name = $("#firstname");
-    private final SelenideElement email = $("#id_email");
-    private final SelenideElement city = $("#id_city");
+    private static final SelenideElement lastname = $("#id_lastname");
+    private static final SelenideElement openPhotoLoadForm = $(By.xpath("//a[@title='Добавить...']"));
+    private static final SelenideElement photoLoadForm = $("//form[@class='form']");
+    private static final SelenideElement photoInput = $(By.xpath("//input[@type='file']"));
+    private static final SelenideElement photoLoadBtn = $(By.xpath("//button[contains(text(),'Загрузить этот файл')]"));
+    private static final SelenideElement saveChangesBtn = $(By.xpath("//input[@name='submitbutton']"));
+    private static final SelenideElement name = $("#firstname");
+    private static final SelenideElement email = $("#id_email");
+    private static final SelenideElement city = $("#id_city");
 
     public EditUserInfPage(String pageUrl) {
         super(pageUrl);

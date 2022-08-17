@@ -9,9 +9,9 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class SubCategoriesPage {
-    public final ElementsCollection courses = $$(By.xpath(".//a[@class='aalink']"));
-    public final SelenideElement nextBtn = $(By.xpath(".//a[@aria-label='Next']"));
-    public final SelenideElement submitBtn = $(By.xpath(".//input[@type ='submit']"));
+    private static final ElementsCollection courses = $$(By.xpath(".//a[@class='aalink']"));
+    private static final SelenideElement nextBtn = $(By.xpath(".//a[@aria-label='Next']"));
+    private static final SelenideElement submitBtn = $(By.xpath(".//input[@type ='submit']"));
 
     public SubCategoriesPage() {
     }

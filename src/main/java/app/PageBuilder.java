@@ -1,11 +1,7 @@
 package app;
 
 import app.pages.*;
-import app.pages.MarksPage;
-import app.pages.MessagePage;
-import app.pages.settings.EditUserInfPage;
-import app.pages.UserPage;
-import app.pages.settings.PasswordPage;
+import app.pages.settings.*;
 
 public class PageBuilder {
 

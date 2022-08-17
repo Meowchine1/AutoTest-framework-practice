@@ -19,20 +19,20 @@ public class Functional extends BaseTest {
 
     @Test(groups = authorization)
     public void course() {
-        app.pages.MainPage.chooseCourseCategory("Задачник");
+        app.mainPage.chooseCourseCategory("Задачник");
         $(By.xpath(".//h1")).shouldBe(Condition.exist);
     }
 
     @Test(groups = authorization, dataProvider = "correctPhoto", dataProviderClass = CustomDataProvider.class)
     public void load(String filename) {// norm
-        app.pages.settings.EditUserInfPage.open();
-        app.pages.settings.EditUserInfPage.setCorrectUserPhoto(filename);
+       app.editUserInfPage.open();
+       app.editUserInfPage.setCorrectUserPhoto(filename);
 
     }
 
     @Test
     public void course2() {
-        app.pages.MainPage.chooseCourseCategory("Задачник");
+        app.mainPage.chooseCourseCategory("Задачник");
         $(By.xpath(".//h1")).shouldBe(Condition.exist);
     }
 }

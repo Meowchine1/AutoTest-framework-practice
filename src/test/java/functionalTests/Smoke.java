@@ -24,40 +24,40 @@ public class Smoke extends BaseTest {
     @Test
     public void positiveSignIn() {
 
-        app.pages.LoginPage.open();
+        app.loginPage.open();
 
-        app.pages.LoginPage.login(ConfigProvider.REAL_USER_LOGIN, ConfigProvider.REAL_USER_PASSWORD);
+        app.loginPage.login(ConfigProvider.REAL_USER_LOGIN, ConfigProvider.REAL_USER_PASSWORD);
         $(By.xpath(".//h1"))
                 .shouldBe(Condition.visible);
     }
 
     @Test
     public void signInWithEmptyLogin() {
-        app.pages.LoginPage.open();
-        app.pages.LoginPage.login(ConfigProvider.EMPTY_LOGIN, ConfigProvider.REAL_USER_PASSWORD);
+        app.loginPage.open();
+        app.loginPage.login(ConfigProvider.EMPTY_LOGIN, ConfigProvider.REAL_USER_PASSWORD);
         ERROR_SING_IN_MESSAGE
                 .shouldBe(Condition.visible);
     }
 
     @Test
     public void signInWithEmptyPassword() {
-        app.pages.LoginPage.open();
-        app.pages.LoginPage.login(ConfigProvider.REAL_USER_LOGIN, ConfigProvider.EMPTY_PASSWORD);
+        app.loginPage.open();
+        app.loginPage.login(ConfigProvider.REAL_USER_LOGIN, ConfigProvider.EMPTY_PASSWORD);
         ERROR_SING_IN_MESSAGE
                 .shouldBe(Condition.visible);
     }
 
     @Test
     public void signInWithEmptyFields() {
-        app.pages.LoginPage.open();
-        app.pages.LoginPage.login(ConfigProvider.EMPTY_LOGIN, ConfigProvider.EMPTY_PASSWORD);
+        app.loginPage.open();
+        app.loginPage.login(ConfigProvider.EMPTY_LOGIN, ConfigProvider.EMPTY_PASSWORD);
         ERROR_SING_IN_MESSAGE
                 .shouldBe(Condition.visible);
     }
 
     @Test(groups = authorization)
     public void openCourse() {
-        app.pages.MainPage
+        app.mainPage
                 .chooseCourseCategory("Задачник")
                 //  System.out.println($(By.xpath(".//a[@class='aalink']")).getAttribute("href"));
                 .chooseCourse("Задачник по программированию");
@@ -67,14 +67,14 @@ public class Smoke extends BaseTest {
 
     @Test(groups = authorization, dataProvider = "validSearch", dataProviderClass = CustomDataProvider.class)
     public void validSearch(String request) {  //параметризованный тест
-        app.pages.SearchPage.open();
-        Assert.assertTrue(app.pages.SearchPage.validSearch(request));
+        app.searchPage.open();
+        Assert.assertTrue(app.searchPage.validSearch(request));
     }
 
     @Test(groups = authorization, dataProvider = "invalidSearch", dataProviderClass = CustomDataProvider.class)
     public void invalidSearch(String request) {  //параметризованный тест
-        app.pages.SearchPage.open();
-        Assert.assertTrue(app.pages.SearchPage.invalidSearch(request));
+        app.searchPage.open();
+        Assert.assertTrue(app.searchPage.invalidSearch(request));
     }
 
     @Test(groups = authorization, dataProvider = "longRequest", dataProviderClass = CustomDataProvider.class)
@@ -82,8 +82,8 @@ public class Smoke extends BaseTest {
         byte[] array = new byte[length]; // length is bounded by 7
         new Random().nextBytes(array);
         String request = new String(array, StandardCharsets.UTF_8);
-        app.pages.SearchPage.open();
-        Assert.assertTrue(app.pages.SearchPage.writeBigSizeString(request));
+        app.searchPage.open();
+        Assert.assertTrue(app.searchPage.writeBigSizeString(request));
 
     }
 
@@ -91,8 +91,8 @@ public class Smoke extends BaseTest {
     public void loadFile() {
         SelenideElement input = $(By.xpath(".//input[@id='filesourcekey-6289f2e207b6d']"));
         //.//input[@name='files_filemanager']
-        app.pages.CoursePage.open();
-        input.sendKeys("C:\\Users\\katev\\IdeaProjects\\PetShop_GradleAllure2\\src\\test\\java\\files\\test.gif");
+        app.coursePage.open();
+        input.sendKeys();
     }
 
     public void unhide(SelenideElement element) {
@@ -103,11 +103,11 @@ public class Smoke extends BaseTest {
 
     @Test(groups = authorization)
     public void attachFile() throws InterruptedException {
-        app.pages.CoursePage.open();
+        app.coursePage.open();
         SelenideElement input = $(By.xpath(".//input[@name='files_filemanager']"));
         SelenideElement input2 = $(By.xpath(".//input[@id='filesourcekey-6289f2e207b6d']"));
         executeJavaScript("arguments[0].setAttribute('type', 'inline')", input);
-        String file = "src/test/java/files/test.gif";
+        String file = "";
         input.uploadFile(new File(file));
         $(By.xpath(".//input[@value='Сохранить'] ")).click();
 
@@ -115,7 +115,7 @@ public class Smoke extends BaseTest {
 
     @Test(groups = authorization)
     public void exitFromcourse() throws InterruptedException {
-        app.pages.TaskPage.open();
+        app.taskPage.open();
         $(By.xpath(".//a[@id='action-menu-toggle-2']")).click();
         $(By.xpath(".//div[@class='dropdown-item'] /child::a")).click();
         $(By.xpath(".//form[@method='post']/child::button")).click();
