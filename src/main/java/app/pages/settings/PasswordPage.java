@@ -18,11 +18,9 @@ public class PasswordPage extends BasePage {
         super(pageUrl);
     }
 
-    public PasswordPage() {
-    }
-
     // global OldPASSWORD MAYBE CLASS? YES need -> configure file
-    public void changePassword(String oldpassword) {
+    public PasswordPage changePassword(String oldpassword) {
 
+        return this;
     }
 }

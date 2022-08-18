@@ -124,15 +124,14 @@ public class Smoke extends BaseTest {
 
     @Test(groups = authorization)
     public void enrollAndExitFromcourse() throws InterruptedException {
-        app.pages.CoursePage.open();
-        app.pages.CoursePage.enroll();
-        app.pages.CoursePage.exit();
+        app.coursePage.open();
+        app.coursePage.enroll().exit();
     }
 
     @Test(groups = authorization)
     public void enrollCourseAndGetTask() throws InterruptedException {
-        app.pages.CoursePage.open();
-        app.pages.CoursePage.chooseTask("Практикум. Первая задача\nКонтестер")
+        app.coursePage.open();
+        app.coursePage.chooseTask("Практикум. Первая задача\nКонтестер")
                 .sendAnswer()
                 .setLang("Python 3")
                 .sendCode(" g")

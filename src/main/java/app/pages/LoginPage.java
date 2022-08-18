@@ -7,9 +7,9 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage extends BasePage {
 
-    public final SelenideElement loginField = $("#username");
-    public final SelenideElement passwordField = $("#password");
-    public final SelenideElement signInButton = $("#loginbtn");
+    private static final SelenideElement loginField = $("#username");
+    private static final SelenideElement passwordField = $("#password");
+    private static final SelenideElement signInButton = $("#loginbtn");
 
     public LoginPage(String pageUrl) {
         super(pageUrl);

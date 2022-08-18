@@ -27,43 +27,49 @@ public class EditUserInfPage extends BasePage {
     public EditUserInfPage() {
     }
 
-    public void setName(String text) {
+    public EditUserInfPage setName(String text) {
 
         name.sendKeys(text);
+        return this;
     }
 
-    public void setSurname(String text) {
+    public EditUserInfPage setSurname(String text) {
 
         lastname.sendKeys(text);
+        return this;
     }
 
-    public void setEmail(String text) {
+    public EditUserInfPage setEmail(String text) {
 
         email.sendKeys(text);
+        return this;
     }
 
-    public void setEmailSettings() {
-
+    public EditUserInfPage setEmailSettings() {
+        return this;
     }
 
-    public void chooseCountry(String text) {
-
+    public EditUserInfPage chooseCountry(String text) {
+        return this;
     }
 
-    public void setCity(String text) {
+    public EditUserInfPage setCity(String text) {
 
         city.sendKeys(text);
+        return this;
     }
 
-    public void setInformation() {
+    public EditUserInfPage setInformation() {
+        return this;
     }
 
-    public static void setCorrectUserPhoto(String path) {
+    public EditUserInfPage setCorrectUserPhoto(String path) {
         File file = new File(path);
         openPhotoLoadForm.shouldBe(Condition.visible).click();
         photoInput.sendKeys(file.getAbsolutePath());
         photoLoadBtn.click();
         saveChangesBtn.click();
+        return this;
     }
 
 

@@ -11,14 +11,14 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class MainPage extends BasePage {
-    public final SelenideElement searchbox = $("#shortsearchbox");
-    public final SelenideElement searchbtn = $(By.xpath("//button[@type ='submit']"));
-    public final SelenideElement userMenu = $(By.xpath(".//div[@class = 'dropdown']/child::a"));
-    public final ElementsCollection userMenuNameCategories = $$(By.xpath(".//div[@data-rel='menu-content']/descendant::i/following-sibling::*"));
-    public final ElementsCollection userMenuHrefsCategories = $$(By.xpath(".//div[@data-rel='menu-content']/descendant::a"));
-    public final SelenideElement navigateMenu = $(By.xpath("//div[@class='d-inline-block mr-3']/child::button"));
-    public final ElementsCollection courseCategories = $$(By.xpath(".//div[@class = 'category loaded']//a"));
-    public final ElementsCollection navigateCategories = $$(By.xpath(".//nav[@class = 'list-group']/descendant::a"));
+    private static final SelenideElement searchbox = $("#shortsearchbox");
+    private static final SelenideElement searchbtn = $(By.xpath("//button[@type ='submit']"));
+    private static final SelenideElement userMenu = $(By.xpath(".//div[@class = 'dropdown']/child::a"));
+    private static final ElementsCollection userMenuNameCategories = $$(By.xpath(".//div[@data-rel='menu-content']/descendant::i/following-sibling::*"));
+    private static final ElementsCollection userMenuHrefsCategories = $$(By.xpath(".//div[@data-rel='menu-content']/descendant::a"));
+    private static final SelenideElement navigateMenu = $(By.xpath("//div[@class='d-inline-block mr-3']/child::button"));
+    private static final ElementsCollection courseCategories = $$(By.xpath(".//div[@class = 'category loaded']//a"));
+    private static final ElementsCollection navigateCategories = $$(By.xpath(".//nav[@class = 'list-group']/descendant::a"));
 
     public MainPage(String pageUrl) {
         super(pageUrl);

@@ -5,6 +5,7 @@ import app.pages.settings.*;
 
 public class PageBuilder {
 
+
     public static LoginPage buildLoginPage() {
         return new LoginPage("/login");
     }

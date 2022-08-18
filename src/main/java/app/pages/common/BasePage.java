@@ -6,7 +6,7 @@ import helpers.Trim;
 
 public abstract class BasePage {
 
-    protected String pageUrl;
+    protected  String pageUrl;
 
     public BasePage(String pageUrl) {
         this.pageUrl = pageUrl;
@@ -15,7 +15,7 @@ public abstract class BasePage {
     public BasePage() {
     }
 
-    public  void open() {
+    public void open() {
         String url = Trim.rtrim(AppConfig.baseUrl, "/") + "/" + Trim.ltrim(pageUrl, "/");
         Selenide.open(url);
     }
