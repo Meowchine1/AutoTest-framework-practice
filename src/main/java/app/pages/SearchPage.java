@@ -3,12 +3,13 @@ package app.pages;
 import app.pages.common.BasePage;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import helpers.Page;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class SearchPage extends BasePage {
+public class SearchPage extends BasePage implements Page {
     private static final String exseptionMessage = "не найдено";
     private static final int maxLength = 20;
     private static final SelenideElement exseptionMessageLocator = $(By.xpath(".//h2"));

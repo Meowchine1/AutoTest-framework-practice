@@ -4,12 +4,13 @@ import app.pages.common.BasePage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import helpers.Page;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class TaskPage extends BasePage {
+public class TaskPage extends BasePage implements Page {
     private boolean locked = false;
     private String task = "";
     private  final SelenideElement taskName = $("#problemselect");

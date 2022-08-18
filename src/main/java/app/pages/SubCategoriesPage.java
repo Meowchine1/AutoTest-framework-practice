@@ -3,12 +3,13 @@ package app.pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import helpers.Page;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class SubCategoriesPage {
+public class SubCategoriesPage implements Page {
     private static final ElementsCollection courses = $$(By.xpath(".//a[@class='aalink']"));
     private static final SelenideElement nextBtn = $(By.xpath(".//a[@aria-label='Next']"));
     private static final SelenideElement submitBtn = $(By.xpath(".//input[@type ='submit']"));

@@ -2,10 +2,11 @@ package app.pages;
 
 import app.pages.common.BasePage;
 import com.codeborne.selenide.SelenideElement;
+import helpers.Page;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class LoginPage extends BasePage {
+public class LoginPage extends BasePage implements Page {
 
     private static final SelenideElement loginField = $("#username");
     private static final SelenideElement passwordField = $("#password");

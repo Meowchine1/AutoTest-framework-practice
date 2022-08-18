@@ -1,8 +1,9 @@
 package app.pages;
 
 import app.pages.common.BasePage;
+import helpers.Page;
 
-public class MarksPage extends BasePage {
+public class MarksPage extends BasePage implements Page {
 
     public MarksPage(String pageUrl) {
         super(pageUrl);

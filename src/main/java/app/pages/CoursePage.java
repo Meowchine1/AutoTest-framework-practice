@@ -3,12 +3,13 @@ package app.pages;
 import app.pages.common.BasePage;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import helpers.Page;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class CoursePage extends BasePage {
+public class CoursePage extends BasePage implements Page {
     private static final SelenideElement enrollCourse =
             $(By.xpath(".//input[@type='submit']"));
     private static final ElementsCollection userMenuNameCategories =

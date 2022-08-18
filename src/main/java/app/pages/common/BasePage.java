@@ -2,9 +2,10 @@ package app.pages.common;
 
 import app.AppConfig;
 import com.codeborne.selenide.Selenide;
+import helpers.Page;
 import helpers.Trim;
 
-public abstract class BasePage {
+public abstract class BasePage implements Page {
 
     protected  String pageUrl;
 

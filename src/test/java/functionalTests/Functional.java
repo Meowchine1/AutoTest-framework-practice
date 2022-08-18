@@ -25,8 +25,8 @@ public class Functional extends BaseTest {
 
     @Test(groups = authorization, dataProvider = "correctPhoto", dataProviderClass = CustomDataProvider.class)
     public void load(String filename) {// norm
-       app.editUserInfPage.open();
-       app.editUserInfPage.setCorrectUserPhoto(filename);
+       app.userInfEditorPage.open();
+       app.userInfEditorPage.setCorrectUserPhoto(filename);
 
     }
 

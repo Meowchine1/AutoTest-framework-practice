@@ -3,13 +3,14 @@ package app.pages.settings;
 import app.pages.common.BasePage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import helpers.Page;
 import org.openqa.selenium.By;
 
 import java.io.File;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class EditUserInfPage extends BasePage {
+public class UserInfEditorPage extends BasePage implements Page {
     private static final SelenideElement lastname = $("#id_lastname");
     private static final SelenideElement openPhotoLoadForm = $(By.xpath("//a[@title='Добавить...']"));
     private static final SelenideElement photoLoadForm = $("//form[@class='form']");
@@ -20,50 +21,50 @@ public class EditUserInfPage extends BasePage {
     private static final SelenideElement email = $("#id_email");
     private static final SelenideElement city = $("#id_city");
 
-    public EditUserInfPage(String pageUrl) {
+    public UserInfEditorPage(String pageUrl) {
         super(pageUrl);
     }
 
-    public EditUserInfPage() {
+    public UserInfEditorPage() {
     }
 
-    public EditUserInfPage setName(String text) {
+    public UserInfEditorPage setName(String text) {
 
         name.sendKeys(text);
         return this;
     }
 
-    public EditUserInfPage setSurname(String text) {
+    public UserInfEditorPage setSurname(String text) {
 
         lastname.sendKeys(text);
         return this;
     }
 
-    public EditUserInfPage setEmail(String text) {
+    public UserInfEditorPage setEmail(String text) {
 
         email.sendKeys(text);
         return this;
     }
 
-    public EditUserInfPage setEmailSettings() {
+    public UserInfEditorPage setEmailSettings() {
         return this;
     }
 
-    public EditUserInfPage chooseCountry(String text) {
+    public UserInfEditorPage chooseCountry(String text) {
         return this;
     }
 
-    public EditUserInfPage setCity(String text) {
+    public UserInfEditorPage setCity(String text) {
 
         city.sendKeys(text);
         return this;
     }
 
-    public EditUserInfPage setInformation() {
+    public UserInfEditorPage setInformation() {
         return this;
     }
 
-    public EditUserInfPage setCorrectUserPhoto(String path) {
+    public UserInfEditorPage setCorrectUserPhoto(String path) {
         File file = new File(path);
         openPhotoLoadForm.shouldBe(Condition.visible).click();
         photoInput.sendKeys(file.getAbsolutePath());

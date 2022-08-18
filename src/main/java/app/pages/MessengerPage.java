@@ -2,11 +2,12 @@ package app.pages;
 
 import app.pages.common.BasePage;
 import com.codeborne.selenide.SelenideElement;
+import helpers.Page;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class MessagePage extends BasePage {
+public class MessengerPage extends BasePage implements Page {
     private static final SelenideElement messageText = $(By.xpath(".//div[@data-region='text-container']"));
     private static final SelenideElement messageClick = $(By.xpath(".//div[@data-region='message']"));
     private static final SelenideElement messageField = $(By.xpath(".//textarea"));
@@ -18,11 +19,11 @@ public class MessagePage extends BasePage {
             $(By.xpath(".//div[@data-preference='entertosend']/descendant::label"));
     private static final SelenideElement settingsBtn = $(By.xpath(".//a[@data-route='view-settings']"));
 
-    public MessagePage(String pageUrl) {
+    public MessengerPage(String pageUrl) {
         super(pageUrl);
     }
 
-    public MessagePage() {
+    public MessengerPage() {
     }
 
     public void turnOnEnter() {

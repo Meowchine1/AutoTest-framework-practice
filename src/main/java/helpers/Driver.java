@@ -17,25 +17,14 @@ public class Driver {
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
         Configuration.holdBrowserOpen = false;
-       SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        Configuration.headless = TestConfig.isHeadless();
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
-        if(TestConfig.isHeadless()) {
-            Configuration.headless = true;
-        } else {
-            Configuration.headless = false;
-        }
 
-        switch (TestConfig.browser)
-        {
-            case "chrome":
-                Configuration.browser = Browsers.CHROME;
-                break;
-            case "firefox":
-                Configuration.browser = Browsers.FIREFOX;
-                break;
-            default:
-                Configuration.browser = Browsers.CHROME;
-                break;
+        switch (TestConfig.browser) {
+            case "chrome" -> Configuration.browser = Browsers.CHROME;
+            case "firefox" -> Configuration.browser = Browsers.FIREFOX;
+            default -> Configuration.browser = Browsers.CHROME;
         }
     }
 
@@ -52,7 +41,7 @@ public class Driver {
     }
 
     public static void executeJs(String script) {
-        JavascriptExecutor js = (JavascriptExecutor)currentDriver();
+        JavascriptExecutor js = (JavascriptExecutor) currentDriver();
         try {
             js.executeScript(script);
         } catch (Exception e) {
@@ -80,8 +69,7 @@ public class Driver {
 
     public static List<LogEntry> getBrowserLogs() {
         LogEntries log = currentDriver().manage().logs().get("browser");
-        List<LogEntry> logList = log.getAll();
-        return logList;
+        return log.getAll();
     }
 
     // COOKIES

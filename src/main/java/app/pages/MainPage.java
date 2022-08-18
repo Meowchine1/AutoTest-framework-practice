@@ -1,8 +1,9 @@
 package app.pages;
 import app.pages.common.BasePage;
-import app.pages.settings.EditUserInfPage;
+import app.pages.settings.UserInfEditorPage;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import helpers.Page;
 import org.openqa.selenium.By;
 
 import java.util.Objects;
@@ -10,7 +11,7 @@ import java.util.Objects;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class MainPage extends BasePage {
+public class MainPage extends BasePage implements Page {
     private static final SelenideElement searchbox = $("#shortsearchbox");
     private static final SelenideElement searchbtn = $(By.xpath("//button[@type ='submit']"));
     private static final SelenideElement userMenu = $(By.xpath(".//div[@class = 'dropdown']/child::a"));
@@ -71,7 +72,7 @@ public class MainPage extends BasePage {
         return new UserPage();
     }
 
-    public MessagePage moveToMessagePage( ){
+    public MessengerPage moveToMessagePage( ){
         String category = "Сообщения";
         userMenu.click();
         for(int i = 0; i< userMenuNameCategories.size(); i++){
@@ -80,10 +81,10 @@ public class MainPage extends BasePage {
                 break;
             }
         }
-        return new MessagePage();
+        return new MessengerPage();
     }
 
-    public EditUserInfPage moveToSettingsPage( ){
+    public UserInfEditorPage moveToSettingsPage( ){
         String category = "Настройки";
         userMenu.click();
         for(int i = 0; i< userMenuNameCategories.size(); i++){
@@ -92,7 +93,7 @@ public class MainPage extends BasePage {
                 break;
             }
         }
-        return new EditUserInfPage();
+        return new UserInfEditorPage();
     }
 
 }
