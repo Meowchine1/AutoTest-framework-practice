@@ -1,14 +1,16 @@
-package helpers;
+package driver;
 
 import app.AppConfig;
 import com.codeborne.selenide.*;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import helpers.TestConfig;
 import org.openqa.selenium.*;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import io.qameta.allure.selenide.AllureSelenide;
 
 import java.util.List;
+import java.util.Locale;
 
 public class Driver {
 
@@ -21,9 +23,13 @@ public class Driver {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
 
-        switch (TestConfig.browser) {
+        switch (TestConfig.browser.toLowerCase(Locale.ROOT)) {
             case "chrome" -> Configuration.browser = Browsers.CHROME;
             case "firefox" -> Configuration.browser = Browsers.FIREFOX;
+            case "edge" -> Configuration.browser = Browsers.EDGE;
+            case "ie" -> Configuration.browser = Browsers.IE;
+            case "opera" -> Configuration.browser = Browsers.OPERA;
+            case "safari" -> Configuration.browser = Browsers.SAFARI;
             default -> Configuration.browser = Browsers.CHROME;
         }
     }
@@ -58,7 +64,7 @@ public class Driver {
     }
 
     public static void clearCookies() {
-        open(AppConfig.baseUrl);
+        open(AppConfig.BASE_URL);
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
     }

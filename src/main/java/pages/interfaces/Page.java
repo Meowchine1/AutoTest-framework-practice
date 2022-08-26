@@ -1,4 +1,4 @@
-package helpers;
+package pages.interfaces;
 
 public interface Page {
 

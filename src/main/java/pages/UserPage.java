@@ -1,7 +1,7 @@
-package app.pages;
+package pages;
 
-import app.pages.common.BasePage;
-import helpers.Page;
+import pages.common.BasePage;
+import pages.interfaces.Page;
 
 public class UserPage extends BasePage implements Page {
     public UserPage(String pageUrl) {

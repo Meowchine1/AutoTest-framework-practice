@@ -1,16 +1,19 @@
-package app.pages;
+package pages;
 
-import app.pages.common.BasePage;
+import pages.common.BasePage;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import helpers.Page;
+import pages.interfaces.Page;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
-public class MessengerPage extends BasePage implements Page {
-    private static final SelenideElement messageText = $(By.xpath(".//div[@data-region='text-container']"));
-    private static final SelenideElement messageClick = $(By.xpath(".//div[@data-region='message']"));
-    private static final SelenideElement messageField = $(By.xpath(".//textarea"));
+public class ChatPage extends BasePage implements Page {
+
+    private static final ElementsCollection messages = $$(By.xpath(".//div[@data-region='message']"));
+    private static final ElementsCollection messagesValues = $$(By.xpath(".//div[@data-region='message']//p"));
+    private static final SelenideElement messageInputField = $(By.xpath(".//textarea"));
     private static final SelenideElement dialog = $(By.xpath(".//div[@class='list-group']/child::a"));
     private static final SelenideElement btnSend = $(By.xpath(".//button[@data-action='send-message']"));
     private static final SelenideElement btnDelete =
@@ -19,11 +22,11 @@ public class MessengerPage extends BasePage implements Page {
             $(By.xpath(".//div[@data-preference='entertosend']/descendant::label"));
     private static final SelenideElement settingsBtn = $(By.xpath(".//a[@data-route='view-settings']"));
 
-    public MessengerPage(String pageUrl) {
+    public ChatPage(String pageUrl) {
         super(pageUrl);
     }
 
-    public MessengerPage() {
+    public ChatPage() {
     }
 
     public void turnOnEnter() {
@@ -34,13 +37,13 @@ public class MessengerPage extends BasePage implements Page {
     public void sendMessage(String text) {
 
         dialog.click();
-        messageField.sendKeys(text);
+        messageInputField.sendKeys(text);
         btnSend.click();
     }
 
     public void deleteMessage() {
         dialog.click();
-        messageClick.click();
+      //  messages.click();
         btnDelete.click();
     }
 

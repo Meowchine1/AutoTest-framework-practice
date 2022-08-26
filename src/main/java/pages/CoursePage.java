@@ -1,9 +1,9 @@
-package app.pages;
+package pages;
 
-import app.pages.common.BasePage;
+import pages.common.BasePage;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import helpers.Page;
+import pages.interfaces.Page;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;

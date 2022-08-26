@@ -1,7 +1,7 @@
 package base;
 
 import app.App;
-import helpers.Driver;
+import driver.Driver;
 import org.testng.annotations.*;
 
 public class BaseTest {

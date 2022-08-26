@@ -1,17 +1,16 @@
-package app.pages;
+package pages;
 
-import app.pages.common.BasePage;
+import app.AppConfig;
+import pages.common.BasePage;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import helpers.Page;
+import pages.interfaces.Page;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class SearchPage extends BasePage implements Page {
-    private static final String exseptionMessage = "не найдено";
-    private static final int maxLength = 20;
     private static final SelenideElement exseptionMessageLocator = $(By.xpath(".//h2"));
     private static final ElementsCollection searcresults = $$(By.xpath(".//a[@class='aalink']"));
     private static final ElementsCollection searcresultsContent =
@@ -20,6 +19,10 @@ public class SearchPage extends BasePage implements Page {
     private static final SelenideElement searchInput = $("#coursesearchbox");
     private static final SelenideElement showall = $(By.xpath("//*[contains(text(),'Показать все')]"));
     private static final SelenideElement searchBtn = $(By.xpath(".//button[@type='submit']"));
+
+    private static final  String QUICK_SEARCH_HREF = AppConfig.quickSearchHref;
+    private static final  String EXSEPTION_MESSAGE = "не найдено";
+    private static final  int MAX_LENGTH = 20;
 
     public SearchPage(String pageUrl) {
         super(pageUrl);
@@ -55,14 +58,14 @@ public class SearchPage extends BasePage implements Page {
         return (exseptionMessageLocator
                 .getText()
                 .toLowerCase()
-                .contains(exseptionMessage));
+                .contains(EXSEPTION_MESSAGE));
     }
 
     public boolean writeBigSizeString(String request) {
         searchInput.sendKeys(request);
         System.out.print(searchInput.getText());
         if (request.length() > 20) {
-            return request.substring(0, maxLength - 1).equals(searchInput.getText());
+            return request.substring(0, MAX_LENGTH - 1).equals(searchInput.getText());
         }
         return true;
     }

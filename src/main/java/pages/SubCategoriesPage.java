@@ -1,9 +1,9 @@
-package app.pages;
+package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import helpers.Page;
+import pages.interfaces.Page;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;

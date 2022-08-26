@@ -1,9 +1,9 @@
-package app.pages;
-import app.pages.common.BasePage;
-import app.pages.settings.UserInfEditorPage;
+package pages;
+import pages.common.BasePage;
+import pages.settingsPages.UserInfEditorPage;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import helpers.Page;
+import pages.interfaces.Page;
 import org.openqa.selenium.By;
 
 import java.util.Objects;
@@ -72,7 +72,7 @@ public class MainPage extends BasePage implements Page {
         return new UserPage();
     }
 
-    public MessengerPage moveToMessagePage( ){
+    public ChatPage moveToMessagePage( ){
         String category = "Сообщения";
         userMenu.click();
         for(int i = 0; i< userMenuNameCategories.size(); i++){
@@ -81,7 +81,7 @@ public class MainPage extends BasePage implements Page {
                 break;
             }
         }
-        return new MessengerPage();
+        return new ChatPage();
     }
 
     public UserInfEditorPage moveToSettingsPage( ){

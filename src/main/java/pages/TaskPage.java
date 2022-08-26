@@ -1,19 +1,18 @@
-package app.pages;
+package pages;
 
-import app.pages.common.BasePage;
+import pages.common.BasePage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import helpers.Page;
+import pages.interfaces.Page;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class TaskPage extends BasePage implements Page {
-    private boolean locked = false;
-    private String task = "";
-    private  final SelenideElement taskName = $("#problemselect");
+
+    private static final SelenideElement taskName = $("#problemselect");
     private static final ElementsCollection taskDescriptions = $$(By.xpath(".//td[@align = 'center' and @valign = 'middle']/child::a"));
     private static final ElementsCollection sendTaskButtons = $$(By.xpath(".//input[@type='submit']"));
     private static final SelenideElement sendTask = $(By.xpath("//input[@type = 'submit']"));
@@ -24,7 +23,11 @@ public class TaskPage extends BasePage implements Page {
     private static final SelenideElement myAnswers = $(By.xpath("//nobr[3]/a"));
     private static final ElementsCollection langCategory = $$(By.xpath(".//select[@name = 'lang']/child::option"));
 
+    private boolean locked = false ;
+    private String task;
+
     public TaskPage(String pageUrl) {
+
         super(pageUrl);
     }
 

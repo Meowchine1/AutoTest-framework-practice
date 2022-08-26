@@ -21,4 +21,5 @@ public interface ConfigProvider {
     public String onEnglish =  config.getString("search.onEnglish");
     public String num =  config.getString("search.num");
 
+
 }

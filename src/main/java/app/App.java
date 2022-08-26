@@ -1,14 +1,13 @@
 package app;
 
-import app.pages.*;
-import app.pages.settings.*;
-import helpers.PageType;
+import pages.*;
+import pages.settingsPages.*;
 
 public class App {
     public final LoginPage loginPage;
     public final MainPage mainPage;
     public final MarksPage marksPage;
-    public final MessengerPage messengerPage;
+    public final ChatPage chatPage;
     public final UserInfEditorPage userInfEditorPage;
     public final UserPage userPage;
     public final CalendarPage calendarPage;
@@ -18,16 +17,16 @@ public class App {
     public final TaskPage taskPage;
 
     public App() {
-        loginPage = (LoginPage) PageFactory.getPage(PageType.LOGIN);
-        mainPage = (MainPage) PageFactory.getPage(PageType.MAIN);
-        marksPage = (MarksPage) PageFactory.getPage(PageType.MARKS);
-        messengerPage = (MessengerPage) PageFactory.getPage(PageType.MESSENGER);
-        userInfEditorPage = (UserInfEditorPage) PageFactory.getPage(PageType.USER_INF_EDITOR);
-        userPage = (UserPage) PageFactory.getPage(PageType.USER);
-        calendarPage = (CalendarPage) PageFactory.getPage(PageType.CALENDAR);
-        searchPage = (SearchPage) PageFactory.getPage(PageType.SEARCH);
-        passwordPage = (PasswordPage) PageFactory.getPage(PageType.PASSWORD);
-        coursePage = (CoursePage) PageFactory.getPage(PageType.COURSE);
-        taskPage = (TaskPage) PageFactory.getPage(PageType.TASK);
+        loginPage = (LoginPage) PageInitializer.initialize(LoginPage.class);
+        mainPage = (MainPage) PageInitializer.initialize(MainPage.class);
+        marksPage = (MarksPage) PageInitializer.initialize(MarksPage.class);
+        chatPage = (ChatPage) PageInitializer.initialize(ChatPage.class);
+        userInfEditorPage = (UserInfEditorPage) PageInitializer.initialize(UserInfEditorPage.class);
+        userPage = (UserPage) PageInitializer.initialize(UserPage.class);
+        calendarPage = (CalendarPage) PageInitializer.initialize(CalendarPage.class);
+        searchPage = (SearchPage) PageInitializer.initialize(SearchPage.class);
+        passwordPage = (PasswordPage) PageInitializer.initialize(PasswordPage.class);
+        coursePage = (CoursePage) PageInitializer.initialize(CoursePage.class);
+        taskPage = (TaskPage) PageInitializer.initialize(TaskPage.class);
     }
 }
