@@ -1,6 +1,6 @@
-package helpers;
+package driver;
 
-public class TestConfig {
+public class DriverProperties {
 
     public static String browser = "chrome";
     public static String headless = "0";

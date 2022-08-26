@@ -3,7 +3,8 @@
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/src/main/java/pages/SearchPage.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/pages/SubCategoriesPage.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/pages/settingsPages/UserInfEditorPage.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pages/UserInfEditorPage.java" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/main/java/pages/UserInfEditorPage.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/test/java/functionalTests/Functional.java" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/test/java/functionalTests/Smoke.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />

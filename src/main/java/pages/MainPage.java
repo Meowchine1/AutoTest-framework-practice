@@ -1,6 +1,5 @@
 package pages;
 import pages.common.BasePage;
-import pages.settingsPages.UserInfEditorPage;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import pages.interfaces.Page;

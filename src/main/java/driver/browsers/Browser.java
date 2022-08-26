@@ -1,40 +1,34 @@
-package driver;
+package driver.browsers;
 
 import app.AppConfig;
-import com.codeborne.selenide.*;
+import com.codeborne.selenide.Browsers;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import org.openqa.selenium.*;
-import org.openqa.selenium.logging.LogEntries;
-import org.openqa.selenium.logging.LogEntry;
+import driver.DriverProperties;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
 
-import java.util.List;
-import java.util.Locale;
 
-public class Driver {
+abstract class Browser {
+    public static String browser;
+
+    public Browser(String browser) {
+        this.browser = browser;
+
+    }
 
     public static void initDriver() {
         DriverProperties.initConfig();
+        Configuration.browser = browser;
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
         Configuration.holdBrowserOpen = false;
         Configuration.headless = DriverProperties.isHeadless();
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
-
-
-        switch (DriverProperties.browser.toLowerCase(Locale.ROOT)) {
-            case "chrome" -> Configuration.browser = Browsers.CHROME;
-            case "firefox" -> Configuration.browser = Browsers.FIREFOX;
-            case "edge" -> Configuration.browser = Browsers.EDGE;
-            case "ie" -> Configuration.browser = Browsers.IE;
-            case "opera" -> Configuration.browser = Browsers.OPERA;
-            case "safari" -> Configuration.browser = Browsers.SAFARI;
-            default -> Configuration.browser = Browsers.CHROME;
-        }
-    }
-
-    public static WebDriver currentDriver() {
-        return WebDriverRunner.getWebDriver();
     }
 
     public static void open(String url) {
@@ -43,6 +37,10 @@ public class Driver {
 
     public static void refresh() {
         Selenide.refresh();
+    }
+
+    public static WebDriver currentDriver() {
+        return WebDriverRunner.getWebDriver();
     }
 
     public static void maximize() {
@@ -63,11 +61,6 @@ public class Driver {
         currentDriver().quit();
     }
 
-    public static List<LogEntry> getBrowserLogs() {
-        LogEntries log = currentDriver().manage().logs().get("browser");
-        return log.getAll();
-    }
-
     // COOKIES
 
     public static void addCookie(Cookie cookie) {
@@ -81,5 +74,4 @@ public class Driver {
     public static void deleteCookie(String cookieName) {
         currentDriver().manage().deleteCookieNamed(cookieName);
     }
-
 }
