@@ -1,32 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Cross Browser Testing">
-    <test name="Test On Chrome">
-        <parameter name="BrowserType" value="chrome"/>
+    <test name="FirefoxTest">
+        <parameter name="browser" value="firefox" />
         <classes>
-            <class name="base.StartBrowser"/>
+            <class name="base.StartBrowser" />
+            <class name="functionalTests.Functional"></class>
         </classes>
     </test>
-    <test name="Test On Edge">
-        <parameter name="BrowserType" value="edge"/>
+    <test name="ChromeTest">
+        <parameter name="browser" value= "chrome" />
         <classes>
-            <class name="base.StartBrowser"/>
+            <class name="base.StartBrowser" />
+            <class name="functionalTests.Functional"></class>
         </classes>
     </test>
-    <test name="Test On Firefox">
-        <parameter name="BrowserType" value="firefox"/>
-        <classes>
-            <class name="base.StartBrowser"/>
-        </classes>
-    </test>
-    <test name="Test On Safari">
-        <parameter name="BrowserType" value="safari"/>
-        <classes>
-            <class name="base.StartBrowser"/>
-        </classes>
-    </test>
-    <test name="Test On Opera">
-        <parameter name="BrowserType" value="opera"/>
-        <classes>
-            <class name="base.StartBrowser"/>
-        </classes>
-    </test>
+
 </suite>

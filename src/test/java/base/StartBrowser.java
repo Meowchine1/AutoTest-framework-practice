@@ -11,13 +11,32 @@ public class StartBrowser {
     protected App app;
     private Browser instance;
     private BrowserType type;
-    private static final BrowserType[] browsers = {BrowserType.CHROME,
-            BrowserType.EDGE, BrowserType.FIREFOX,
-            BrowserType.OPERA, BrowserType.SAFARI};
 
+    @Parameters("browser")
     @BeforeClass
-    public void startSession() {
-        instance = BrowserPool.getInstance(BrowserType.CHROME);
+    public void startSession(String browser) {
+
+        switch (browser) {
+            case ("edge"):
+                type = BrowserType.EDGE;
+                break;
+            case ("opera"):
+                type = BrowserType.OPERA;
+                break;
+            case ("ie"):
+                type = BrowserType.IE;
+                break;
+            case ("firefox"):
+                type = BrowserType.FIREFOX;
+                break;
+            case ("safari"):
+                type = BrowserType.SAFARI;
+                break;
+            case ("chrome"):
+                type = BrowserType.CHROME;
+                break;
+        }
+        instance = BrowserPool.getInstance(type);
         instance.initDriver();
         app = new App();
     }
@@ -38,8 +57,4 @@ public class StartBrowser {
         instance.close();
     }
 
-    public static void main(String[] args) {
-
-
-    }
 }

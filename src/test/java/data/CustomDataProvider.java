@@ -1,5 +1,6 @@
 package data;
 
+import browserDriver.BrowserType;
 import org.testng.annotations.DataProvider;
 
 import java.io.File;
@@ -29,7 +30,7 @@ public class CustomDataProvider {
 
     @DataProvider(name = "browsers", parallel = true)
     public static Object[][] browsers() {
-        return new Object[][]{{"chrome"}, {"firefox"}, {"opera"}, {"safari"}  // -
+        return new Object[][]{{BrowserType.CHROME}, {BrowserType.EDGE}, {BrowserType.OPERA}, {BrowserType.SAFARI}  // -
         };
     }
 
