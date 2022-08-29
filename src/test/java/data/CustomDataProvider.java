@@ -1,4 +1,4 @@
-package base;
+package data;
 
 import org.testng.annotations.DataProvider;
 
@@ -24,6 +24,12 @@ public class CustomDataProvider {
     @DataProvider(name = "longRequest", parallel = true)
     public static Object[][] longRequest() {
         return new Object[][]{{19}, {20}, {21}, {50}  // -
+        };
+    }
+
+    @DataProvider(name = "browsers", parallel = true)
+    public static Object[][] browsers() {
+        return new Object[][]{{"chrome"}, {"firefox"}, {"opera"}, {"safari"}  // -
         };
     }
 

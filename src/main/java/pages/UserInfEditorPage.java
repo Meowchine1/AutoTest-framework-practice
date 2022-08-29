@@ -12,10 +12,10 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class UserInfEditorPage extends BasePage implements Page {
     private static final SelenideElement lastname = $("#id_lastname");
-    private static final SelenideElement openPhotoLoadForm = $(By.xpath("//a[@title='Добавить...']"));
+    private static final SelenideElement openPhotoLoadForm = $(By.xpath("//a[@title='Add...']"));
     private static final SelenideElement photoLoadForm = $("//form[@class='form']");
     private static final SelenideElement photoInput = $(By.xpath("//input[@type='file']"));
-    private static final SelenideElement photoLoadBtn = $(By.xpath("//button[contains(text(),'Загрузить этот файл')]"));
+    private static final SelenideElement photoLoadBtn = $(By.xpath("//button[contains(text(),'Upload this file')]"));
     private static final SelenideElement saveChangesBtn = $(By.xpath("//input[@name='submitbutton']"));
     private static final SelenideElement name = $("#firstname");
     private static final SelenideElement email = $("#id_email");

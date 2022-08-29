@@ -1,9 +1,10 @@
 package functionalTests;
 
-import base.BaseTest;
+import base.StartBrowser;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import data.ConfigProvider;
+import browserDriver.BrowserType;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -12,11 +13,11 @@ import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.util.Random;
 
-import base.CustomDataProvider;
+import data.CustomDataProvider;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class Smoke extends BaseTest {
+public class Smoke extends StartBrowser {
 
     private static final String authorization = "authorization";
     public final SelenideElement ERROR_SING_IN_MESSAGE = $(By.xpath(".//div[@role='alert']"));

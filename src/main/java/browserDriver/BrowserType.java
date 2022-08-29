@@ -1,4 +1,4 @@
-package driver.browsers;
+package browserDriver;
 
 public enum BrowserType {
     CHROME,

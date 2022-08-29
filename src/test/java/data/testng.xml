@@ -1,0 +1,32 @@
+<suite name="Cross Browser Testing">
+    <test name="Test On Chrome">
+        <parameter name="BrowserType" value="chrome"/>
+        <classes>
+            <class name="base.StartBrowser"/>
+        </classes>
+    </test>
+    <test name="Test On Edge">
+        <parameter name="BrowserType" value="edge"/>
+        <classes>
+            <class name="base.StartBrowser"/>
+        </classes>
+    </test>
+    <test name="Test On Firefox">
+        <parameter name="BrowserType" value="firefox"/>
+        <classes>
+            <class name="base.StartBrowser"/>
+        </classes>
+    </test>
+    <test name="Test On Safari">
+        <parameter name="BrowserType" value="safari"/>
+        <classes>
+            <class name="base.StartBrowser"/>
+        </classes>
+    </test>
+    <test name="Test On Opera">
+        <parameter name="BrowserType" value="opera"/>
+        <classes>
+            <class name="base.StartBrowser"/>
+        </classes>
+    </test>
+</suite>

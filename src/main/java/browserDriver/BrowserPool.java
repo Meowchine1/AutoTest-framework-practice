@@ -1,7 +1,6 @@
-package driver.browsers;
+package browserDriver;
 
 import com.codeborne.selenide.Browsers;
-import driver.browsers.*;
 
 import java.util.HashMap;
 
@@ -30,7 +29,4 @@ public class BrowserPool {
         return browserImpl;
     }
 
-    public static void release(Browser browser) {
-
-    }
 }

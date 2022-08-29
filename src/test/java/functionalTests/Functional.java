@@ -1,14 +1,16 @@
 package functionalTests;
 
-import base.BaseTest;
-import base.CustomDataProvider;
+import data.CustomDataProvider;
+import base.StartBrowser;
 import com.codeborne.selenide.Condition;
+import browserDriver.BrowserType;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class Functional extends BaseTest {
+
+public class Functional extends StartBrowser {
 
     private static final String authorization = "authorization";
 
@@ -23,7 +25,7 @@ public class Functional extends BaseTest {
         $(By.xpath(".//h1")).shouldBe(Condition.exist);
     }
 
-    @Test(groups = authorization, dataProvider = "correctPhoto", dataProviderClass = CustomDataProvider.class)
+    @Test(groups = authorization, dataProvider = "correctPhoto", dataProviderClass = CustomDataProvider.class) // depends from language
     public void load(String filename) {// norm
        app.userInfEditorPage.open();
        app.userInfEditorPage.setCorrectUserPhoto(filename);

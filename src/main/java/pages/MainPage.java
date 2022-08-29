@@ -45,19 +45,6 @@ public class MainPage extends BasePage implements Page {
        return new SubCategoriesPage();
     }
 
-    public CalendarPage moveToCalendarPage(){
-        //   calendar  myhome  home
-        String categoryName = "calendar";
-        navigateMenu.click();
-        for(SelenideElement element : navigateCategories){
-            if(Objects.equals(element.getAttribute("data-key"), categoryName))
-            {
-                element.click();
-                break;
-            }
-        }
-        return new CalendarPage();
-    }
 
     public UserPage moveToUserPage( ){
         String category = "О пользователе";
