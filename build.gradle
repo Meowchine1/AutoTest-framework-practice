@@ -13,7 +13,7 @@ repositories {
 
 
 dependencies {
-
+    implementation 'com.opera:operadriver:1.5'
     implementation 'com.codeborne:selenide:6.3.5'
     implementation 'org.testng:testng:7.0.0'
     testImplementation 'org.testng:testng:7.0.0'

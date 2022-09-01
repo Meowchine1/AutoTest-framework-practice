@@ -4,6 +4,7 @@ import app.App;
 import browserDriver.Browser;
 import browserDriver.BrowserPool;
 import browserDriver.BrowserType;
+import data.ConfigProvider;
 import org.testng.annotations.*;
 
 
@@ -16,7 +17,7 @@ public class StartBrowser {
     @BeforeClass
     public void startSession(String browser) {
 
-        switch (browser) {
+        switch (browser.toLowerCase()) {
             case ("edge"):
                 type = BrowserType.EDGE;
                 break;
@@ -44,7 +45,8 @@ public class StartBrowser {
     @BeforeMethod(groups = "authorization")
     public void login() {
         app.loginPage.open();
-        app.loginPage.login("katevoronina128@gmail.com", "8962615kate");
+        app.loginPage.login(ConfigProvider.REAL_USER_LOGIN, ConfigProvider.REAL_USER_PASSWORD);
+
     }
 
     @AfterMethod

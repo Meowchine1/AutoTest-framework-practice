@@ -32,7 +32,7 @@ public class Functional extends StartBrowser {
 
     }
 
-    @Test
+
     public void course2() {
         app.mainPage.chooseCourseCategory("Задачник");
         $(By.xpath(".//h1")).shouldBe(Condition.exist);

@@ -20,6 +20,8 @@ public abstract class Browser {
     }
 
     public void initDriver() {
+        Configuration.remote = " http://localhost:4444/wd/hub";
+        Configuration.driverManagerEnabled = false;
         Configuration.browser = browser;
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
