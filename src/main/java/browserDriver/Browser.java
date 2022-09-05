@@ -1,10 +1,10 @@
 package browserDriver;
 
-import app.AppConfig;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import helpers.ConfigProvider;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Dimension;
@@ -51,7 +51,7 @@ public abstract class Browser {
     }
 
     public void clearCookies() {
-        open(AppConfig.BASE_URL);
+        open(ConfigProvider.BASE_URL);
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
     }

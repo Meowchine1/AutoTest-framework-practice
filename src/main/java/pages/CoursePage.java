@@ -1,10 +1,11 @@
 package pages;
 
-import pages.common.BasePage;
+import pages.base.BasePage;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import pages.interfaces.Page;
+import pages.base.Page;
 import org.openqa.selenium.By;
+import pages.commonElements.UserMenu;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -16,6 +17,8 @@ public class CoursePage extends BasePage implements Page {
             $$(By.xpath(".//div[@class='activityinstance']/descendant::span[@class='instancename']"));
     private static final ElementsCollection userMenuHrefsCategories =
             $$(By.xpath(".//div[@class='activityinstance']"));
+
+    private final UserMenu userMenu = new UserMenu();
 
     public CoursePage(String pageUrl) {
         super(pageUrl);

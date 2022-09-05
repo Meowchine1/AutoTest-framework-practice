@@ -1,6 +1,6 @@
 package pages;
 
-import pages.interfaces.Page;
+import pages.base.Page;
 
 public class NotFoundPage implements Page {
 }

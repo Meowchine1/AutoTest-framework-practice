@@ -1,10 +1,10 @@
 package pages;
 
-import pages.common.BasePage;
+import pages.base.BasePage;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import pages.interfaces.Page;
+import pages.base.Page;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;

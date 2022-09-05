@@ -1,10 +1,11 @@
 package pages;
 
-import pages.common.BasePage;
+import pages.base.BasePage;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import pages.interfaces.Page;
+import pages.base.Page;
 import org.openqa.selenium.By;
+import pages.commonElements.UserMenu;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -21,6 +22,8 @@ public class ChatPage extends BasePage implements Page {
     private static final SelenideElement turnOnEnter =
             $(By.xpath(".//div[@data-preference='entertosend']/descendant::label"));
     private static final SelenideElement settingsBtn = $(By.xpath(".//a[@data-route='view-settings']"));
+
+    private final UserMenu userMenu = new UserMenu();
 
     public ChatPage(String pageUrl) {
         super(pageUrl);

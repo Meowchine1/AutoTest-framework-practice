@@ -12,6 +12,7 @@ public class App {
     public final PasswordPage passwordPage;
     public final CoursePage coursePage;
     public final TaskPage taskPage;
+    public final SettingsPage settingsPage;
 
     public App() {
         loginPage = (LoginPage) PageInitializer.initialize(LoginPage.class);
@@ -23,5 +24,6 @@ public class App {
         passwordPage = (PasswordPage) PageInitializer.initialize(PasswordPage.class);
         coursePage = (CoursePage) PageInitializer.initialize(CoursePage.class);
         taskPage = (TaskPage) PageInitializer.initialize(TaskPage.class);
+        settingsPage = (SettingsPage) PageInitializer.initialize(SettingsPage.class);
     }
 }

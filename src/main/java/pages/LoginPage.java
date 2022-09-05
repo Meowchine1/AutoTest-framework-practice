@@ -1,8 +1,9 @@
 package pages;
 
-import pages.common.BasePage;
+import pages.base.BasePage;
 import com.codeborne.selenide.SelenideElement;
-import pages.interfaces.Page;
+import pages.base.Page;
+import pages.commonElements.UserMenu;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -11,6 +12,8 @@ public class LoginPage extends BasePage implements Page {
     private static final SelenideElement loginField = $("#username");
     private static final SelenideElement passwordField = $("#password");
     private static final SelenideElement signInButton = $("#loginbtn");
+
+    private final UserMenu userMenu = new UserMenu();
 
     public LoginPage(String pageUrl) {
         super(pageUrl);
