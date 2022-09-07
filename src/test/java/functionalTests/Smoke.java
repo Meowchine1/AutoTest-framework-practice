@@ -4,7 +4,6 @@ import base.StartBrowser;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import data.ConfigProvider;
-import browserDriver.BrowserType;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -84,7 +83,7 @@ public class Smoke extends StartBrowser {
         new Random().nextBytes(array);
         String request = new String(array, StandardCharsets.UTF_8);
         app.searchPage.open();
-        Assert.assertTrue(app.searchPage.writeBigSizeString(request));
+        Assert.assertTrue(app.searchPage.TooLongSearchRequest(request));
 
     }
 

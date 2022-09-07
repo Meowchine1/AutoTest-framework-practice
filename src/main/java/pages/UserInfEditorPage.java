@@ -22,6 +22,9 @@ public class UserInfEditorPage extends BasePage implements Page {
     private static final SelenideElement name = $("#firstname");
     private static final SelenideElement email = $("#id_email");
     private static final SelenideElement city = $("#id_city");
+    private static final SelenideElement textArea = $("#id_description_editoreditable");
+
+    private static final SelenideElement exception = $(By.xpath(".//div[@class = 'moodle-exception-message']"));
     private static final ElementsCollection citiesCollection = $$(".//select[@name='country']//option");
 
     public UserInfEditorPage(String pageUrl) {
@@ -69,7 +72,8 @@ public class UserInfEditorPage extends BasePage implements Page {
         return this;
     }
 
-    public UserInfEditorPage setInformation() {
+    public UserInfEditorPage setInformation(String inf) {
+        textArea.sendKeys(inf);
         return this;
     }
 
@@ -81,6 +85,16 @@ public class UserInfEditorPage extends BasePage implements Page {
         saveChangesBtn.click();
         return this;
     }
+
+    public UserInfEditorPage setUncorrectUserPhoto(String path) { // format or size
+        File file = new File(path);
+        openPhotoLoadForm.shouldBe(Condition.visible).click();
+        photoInput.sendKeys(file.getAbsolutePath());
+        photoLoadBtn.click();
+        exception.shouldBe(Condition.visible);
+        return this;
+    }
+
 
 
 }

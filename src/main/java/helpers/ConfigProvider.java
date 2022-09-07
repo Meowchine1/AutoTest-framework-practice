@@ -23,7 +23,8 @@ public interface ConfigProvider {
     String TASK_URL = config.getString("href.TASK_URL");
     String SETTINGS_URL = config.getString("href.SETTINGS_URL");
 
+    String QUICK_SEARCH = config.getString("href.QUICK_SEARCH");
 
-      String QUICK_SEARCH = config.getString("href.QUICK_SEARCH");
+    String PASSWORD_HISTORY_FILE_PATH = config.getString("filePath.passwordHistory");
 
 }

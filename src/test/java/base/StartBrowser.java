@@ -5,8 +5,8 @@ import browserDriver.Browser;
 import browserDriver.BrowserPool;
 import browserDriver.BrowserType;
 import data.ConfigProvider;
+import helpers.PasswordLogger;
 import org.testng.annotations.*;
-
 
 public class StartBrowser {
     protected App app;
@@ -42,10 +42,11 @@ public class StartBrowser {
         app = new App();
     }
 
+    // [0] - previous passwordHistory, [1] - actual passwordHistory
     @BeforeMethod(groups = "authorization")
     public void login() {
         app.loginPage.open();
-        app.loginPage.login(ConfigProvider.REAL_USER_LOGIN, ConfigProvider.REAL_USER_PASSWORD);
+        app.loginPage.login(ConfigProvider.REAL_USER_LOGIN, PasswordLogger.getLastPasswords()[1]);
 
     }
 

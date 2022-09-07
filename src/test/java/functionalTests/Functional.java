@@ -1,5 +1,6 @@
 package functionalTests;
 
+import com.github.javafaker.Faker;
 import data.CustomDataProvider;
 import base.StartBrowser;
 import com.codeborne.selenide.Condition;
@@ -12,6 +13,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class Functional extends StartBrowser {
 
+    private Faker faker = new Faker();
     private static final String authorization = "authorization";
 
     @Test
@@ -30,6 +32,17 @@ public class Functional extends StartBrowser {
        app.userInfEditorPage.open();
        app.userInfEditorPage.setCorrectUserPhoto(filename);
 
+    }
+
+    @Test(groups = authorization)
+    public void positiveFillingInf(){
+        app.userInfEditorPage
+                .setCity(faker.address().city())
+                .chooseRandomCountry()
+                .setName(faker.name().firstName())
+                .setSurname(faker.name().lastName())
+                .setEmail(faker.internet().emailAddress())
+                .setInformation(faker.funnyName().name());
     }
 
 

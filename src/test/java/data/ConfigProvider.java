@@ -9,8 +9,8 @@ public interface ConfigProvider {
         return ConfigFactory.load("application.conf");
     }
     String REAL_USER_LOGIN = config.getString("usersParams.validUser.login");
-    String REAL_USER_PASSWORD = config.getString("usersParams.validUser.password");
-    String EMPTY_PASSWORD = config.getString("password.empty");
+    String REAL_USER_PASSWORD = config.getString("usersParams.validUser.passwordHistory");
+    String EMPTY_PASSWORD = config.getString("passwordHistory.empty");
     String EMPTY_LOGIN = config.getString("email.empty");
     String symbol_grid =  config.getString("search.symbol_grid");
     String symbol_dollar =  config.getString("search.symbol_dollar");
