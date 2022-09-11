@@ -4,6 +4,7 @@ import base.StartBrowser;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import data.ConfigProvider;
+import helpers.PasswordLogger;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -26,7 +27,7 @@ public class Smoke extends StartBrowser {
 
         app.loginPage.open();
 
-        app.loginPage.login(ConfigProvider.REAL_USER_LOGIN, ConfigProvider.REAL_USER_PASSWORD);
+        app.loginPage.login(ConfigProvider.REAL_USER_LOGIN, PasswordLogger.getActualPassword());
         $(By.xpath(".//h1"))
                 .shouldBe(Condition.visible);
     }
@@ -34,7 +35,7 @@ public class Smoke extends StartBrowser {
     @Test
     public void signInWithEmptyLogin() {
         app.loginPage.open();
-        app.loginPage.login(ConfigProvider.EMPTY_LOGIN, ConfigProvider.REAL_USER_PASSWORD);
+        app.loginPage.login(ConfigProvider.EMPTY_LOGIN, PasswordLogger.getActualPassword());
         ERROR_SING_IN_MESSAGE
                 .shouldBe(Condition.visible);
     }

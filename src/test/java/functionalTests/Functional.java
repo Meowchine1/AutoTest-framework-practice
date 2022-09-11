@@ -27,7 +27,7 @@ public class Functional extends StartBrowser {
         $(By.xpath(".//h1")).shouldBe(Condition.exist);
     }
 
-    @Test(groups = authorization, dataProvider = "correctPhoto", dataProviderClass = CustomDataProvider.class) // depends from language
+    @Test(groups = authorization, dataProvider = "correctPhoto", dataProviderClass = CustomDataProvider.class)
     public void load(String filename) {// norm
        app.userInfEditorPage.open();
        app.userInfEditorPage.setCorrectUserPhoto(filename);
@@ -35,7 +35,7 @@ public class Functional extends StartBrowser {
     }
 
     @Test(groups = authorization)
-    public void positiveFillingInf(){
+    public void positiveFillingInf(){// -----------
         app.userInfEditorPage
                 .setCity(faker.address().city())
                 .chooseRandomCountry()

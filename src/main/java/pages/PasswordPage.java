@@ -18,7 +18,6 @@ public class PasswordPage extends BasePage  implements Page {
     private final static SelenideElement firstNewPasswordField = $(By.xpath(".//input[@name='newpassword1']"));
     private final static SelenideElement secondNewPasswordField = $(By.xpath(".//input[@name='newpassword2']"));
     private final static SelenideElement saveBtn = $(By.xpath(".//input[@value='Save changes']"));
-
     private final static SelenideElement errorPasswordMessage = $(By.xpath(".//div[@id='id_error_password']"));
     private final static SelenideElement error1PasswordMessage = $(By.xpath(".//div[@id='id_error_newpassword1']"));
     private final static SelenideElement error2PasswordMessage = $(By.xpath(".//div[@id='id_error_newpassword2']"));

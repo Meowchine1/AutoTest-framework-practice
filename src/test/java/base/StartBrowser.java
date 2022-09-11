@@ -42,11 +42,11 @@ public class StartBrowser {
         app = new App();
     }
 
-    // [0] - previous passwordHistory, [1] - actual passwordHistory
+
     @BeforeMethod(groups = "authorization")
     public void login() {
         app.loginPage.open();
-        app.loginPage.login(ConfigProvider.REAL_USER_LOGIN, PasswordLogger.getLastPasswords()[1]);
+        app.loginPage.login(ConfigProvider.REAL_USER_LOGIN, PasswordLogger.getActualPassword());
 
     }
 

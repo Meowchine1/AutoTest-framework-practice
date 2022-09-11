@@ -5,6 +5,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import helpers.ConfigProvider;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Dimension;
@@ -20,12 +21,12 @@ public abstract class Browser {
     }
 
     public void initDriver() {
-      //  Configuration.driverManagerEnabled = false;
+       Configuration.driverManagerEnabled = true;
         Configuration.browser = browser;
       //  Configuration.remote = " http://localhost:4444/wd/hub";
         Configuration.pageLoadStrategy = "eager";
         Configuration.browserSize = "1920x1080";
-        Configuration.holdBrowserOpen = false;
+     //   Configuration.holdBrowserOpen = false;
         Configuration.headless = false;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }

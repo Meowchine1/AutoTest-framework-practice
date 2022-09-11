@@ -16,7 +16,7 @@ public abstract class BasePage implements Page {
     }
 
     public void open() {
-        String url = Trim.rtrim(ConfigProvider.BASE_URL, "/") + "/" + Trim.ltrim(pageUrl, "/");
+        String url = Trim.rtrim("https://school.sgu.ru", "/") + "/" + Trim.ltrim(pageUrl, "/");
         Selenide.open(url);
     }
 }

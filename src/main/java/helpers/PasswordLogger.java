@@ -23,6 +23,21 @@ public class PasswordLogger {
         return passwords;
     }
 
+    public static String getActualPassword(){
+        String[] passwords = new String[2];
+
+        try {
+            Scanner scanner = new Scanner(new File
+                    (ConfigProvider.PASSWORD_HISTORY_FILE_PATH));
+            passwords[0] = scanner.nextLine().split("=")[1];
+            passwords[1]  = scanner.nextLine().split("=")[1];
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return passwords[1];
+    }
+
     public static void overwritePassword(String newPassword){
 
         String[] passwords = getLastPasswords();
