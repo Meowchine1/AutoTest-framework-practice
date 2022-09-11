@@ -68,7 +68,7 @@ public class Smoke extends StartBrowser {
     @Test(groups = authorization, dataProvider = "validSearch", dataProviderClass = CustomDataProvider.class)
     public void validSearch(String request) {  //параметризованный тест
         app.searchPage.open();
-        Assert.assertTrue(app.searchPage.validSearch(request));
+        Assert.assertTrue(app.searchPage.search(request));
     }
 
     @Test(groups = authorization, dataProvider = "invalidSearch", dataProviderClass = CustomDataProvider.class)
@@ -79,11 +79,8 @@ public class Smoke extends StartBrowser {
 
     @Test(groups = authorization, dataProvider = "longRequest", dataProviderClass = CustomDataProvider.class)
     public void bigSizeStringformat(int length) {
-        byte[] array = new byte[length]; // length is bounded by 7
-        new Random().nextBytes(array);
-        String request = new String(array, StandardCharsets.UTF_8);
         app.searchPage.open();
-        Assert.assertTrue(app.searchPage.TooLongSearchRequest(request));
+        app.searchPage.longSearchRequest();
 
     }
 
